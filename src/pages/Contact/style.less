@@ -1,0 +1,305 @@
+@import '../../styles/theme.less';
+@import '../../styles/common.less';
+
+.contact-page {
+  .page-banner {
+    &:extend(.page-banner all);
+  }
+
+  .contact-banner {
+    height: 360px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding-top: 64px;
+    background-size: cover;
+    background-position: center;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
+    }
+    
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      max-width: 800px;
+      padding: 0 24px;
+      
+      h1 {
+        font-size: 42px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #fff;
+        letter-spacing: 1px;
+      }
+      
+      p {
+        font-size: 18px;
+        opacity: 0.95;
+        line-height: 1.6;
+      }
+    }
+    
+    .tech-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: @tech-grid;
+      opacity: 0.15;
+    }
+  }
+
+  section {
+    padding: 80px 0;
+    
+    &:nth-child(even) {
+      background: linear-gradient(to bottom, @gray-2, #fff);
+    }
+    
+    .section-content {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+      
+      h2 {
+        color: @dark-blue;
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 48px;
+        text-align: center;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -16px;
+          width: 60px;
+          height: 3px;
+          background: @primary-blue;
+          transform: translateX(-50%);
+        }
+      }
+    }
+  }
+
+  .contact-section {
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      margin-top: 20px;
+      
+      .info-card {
+        text-align: center;
+        padding: 40px 24px;
+        border-radius: 12px;
+        background: #fff;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        
+        &:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+          
+          .anticon {
+            transform: scale(1.1);
+            color: @primary-blue;
+          }
+        }
+        
+        .anticon {
+          font-size: 32px;
+          color: @dark-blue;
+          margin-bottom: 20px;
+          transition: all 0.3s ease;
+        }
+        
+        h3 {
+          font-size: 18px;
+          color: @dark-blue;
+          margin-bottom: 12px;
+          font-weight: 500;
+        }
+        
+        p {
+          color: @gray-6;
+          font-size: 15px;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+    }
+  }
+
+  .map-section {
+    .map-container {
+      height: 480px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      
+      .map-placeholder {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background-size: cover !important;
+        background-position: center !important;
+        
+        p {
+          color: #fff;
+          font-size: 18px;
+          position: relative;
+          z-index: 1;
+          padding: 16px 32px;
+          background: rgba(0, 0, 0, 0.6);
+          border-radius: 8px;
+          backdrop-filter: blur(8px);
+        }
+        
+        .tech-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: @tech-grid;
+          opacity: 0.1;
+        }
+      }
+    }
+  }
+
+  // 添加友情链接样式
+  .friendly-links-section {
+    padding: 80px 0;
+    background: #fff;
+    
+    .section-content {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+      
+      h2 {
+        color: @dark-blue;
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 48px;
+        text-align: center;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -16px;
+          width: 60px;
+          height: 3px;
+          background: @primary-blue;
+          transform: translateX(-50%);
+        }
+      }
+      
+      .links-container {
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// 响应式调整
+@media (max-width: 1200px) {
+  .contact-page {
+    .contact-section {
+      .info-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .contact-page {
+    .contact-banner {
+      height: 300px;
+      
+      .banner-content {
+        h1 {
+          font-size: 32px;
+        }
+        
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+    
+    section {
+      padding: 60px 0;
+      
+      .section-content {
+        h2 {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+      }
+    }
+    
+    .contact-section {
+      .info-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+    
+    .map-section {
+      .map-container {
+        height: 360px;
+      }
+    }
+    
+    .friendly-links-section {
+      padding: 60px 0;
+      
+      .section-content {
+        h2 {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+        
+        .links-container {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .friendly-links-section {
+    .section-content {
+      .links-container {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+    }
+  }
+} 

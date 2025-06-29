@@ -1,0 +1,319 @@
+@import '../../styles/theme.less';
+
+.about-page {
+  section {
+    padding: 60px 0;
+    
+    &:nth-child(even) {
+      background: @gray-2;
+    }
+    
+    .section-content {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 0 24px;
+      
+      h2 {
+        color: @dark-blue;
+        margin-bottom: 40px;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          width: 60px;
+          height: 3px;
+          background: @primary-blue;
+        }
+      }
+    }
+  }
+  
+  // 公司简介
+  .section-profile {
+    .profile-image {
+      height: 400px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      
+      .tech-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    
+    .profile-text {
+      font-size: 16px;
+      line-height: 1.8;
+      font-size: 18px;
+      text-indent: 2em;
+      color: @gray-6;
+    }
+
+    .intro-highlights {
+      margin: 24px 0;
+
+      .highlight-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 16px;
+        
+        .highlight-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #1890ff; // 使用主题蓝色，可以根据需要调整
+          margin-right: 12px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+  
+  // 领导简介
+  .section-management {
+    .management-card {
+      text-align: center;
+      transition: all 0.3s ease;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      }
+      
+      .member-avatar {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        border-radius: 50%;
+        background-size: cover !important;
+      }
+      
+      h4 {
+        margin: 0;
+        color: @dark-blue;
+      }
+      
+      h5 {
+        margin: 8px 0 16px;
+      }
+      
+      p {
+        color: @gray-6;
+        margin: 0;
+      }
+    }
+  }
+  
+  // 企业文化
+  .section-culture {
+    .culture-card {
+      padding: 24px;
+      height: 100%;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: @box-shadow;
+      }
+      
+      h3 {
+        color: #fff;
+        margin-bottom: 16px;
+      }
+      
+      p {
+        color: #fff;
+        font-size: 16px;
+        margin: 0;
+      }
+    }
+  }
+  
+  // 资质与荣誉
+  .section-qualifications {
+    .qualification-item {
+      height: 280px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: @box-shadow;
+      }
+      
+      .tech-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+      
+      span {
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        padding: 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+
+  .management-team {
+    background: #fff;
+
+    .manager-card {
+      height: 100%;
+      border: none;
+      box-shadow: @box-shadow;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+      }
+
+      // 单个管理层成员时的卡片样式
+      &.single {
+        text-align: center;
+
+        .avatar-wrapper {
+          border-radius: 8px;
+          overflow: hidden;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
+        }
+
+        .info {
+          h3 {
+            font-size: 24px;
+            margin: 8px;
+          }
+
+          p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      // 多个管理层成员时的卡片样式
+      &:not(.single) {
+        .avatar-wrapper {
+          width: 120px;
+          height: 120px;
+          margin: 0 auto 16px;
+          
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+          }
+        }
+
+        .info {
+          text-align: center;
+          margin-bottom: 16px;
+
+          h3 {
+            font-size: 18px;
+            margin-bottom: 4px;
+          }
+
+          p {
+            color: #666;
+          }
+        }
+
+        .description {
+          color: #666;
+          font-size: 14px;
+          line-height: 1.8;
+        }
+      }
+    }
+
+    // 单个管理层成员时的描述样式
+    .manager-description {
+      .ant-typography {
+        font-size: 18px;
+        line-height: 1.8;
+        color: #262626;
+        text-indent: 2em;
+      }
+    }
+
+    .manager-more-details {
+      .detail-item {
+        text-indent: 2em;
+      }
+    }
+  }
+}
+
+// 响应式调整
+@media (max-width: 991px) {
+  .about-page {
+    section {
+      padding: 40px 0;
+      
+      .section-content {
+        h2 {
+          margin-bottom: 30px;
+        }
+      }
+    }
+    
+    .section-profile {
+      .profile-image {
+        height: 300px;
+        margin-bottom: 24px;
+      }
+    }
+    
+    .section-global {
+      .global-map {
+        height: 300px;
+      }
+    }
+  }
+} 

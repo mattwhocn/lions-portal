@@ -1,0 +1,281 @@
+@import '../../styles/theme.less';
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.5) !important;
+  padding: 0;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  
+  .header-content {
+    position: relative;
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    user-select: none;
+    // 桌面端菜单
+    .logo {
+      display: flex;
+      align-items: center;
+      min-width: 120px;
+      margin-right: 48px;
+      
+      .logo-mark {
+        width: 56px;
+        height: 56px;
+        margin-right: 12px;
+        position: relative;
+
+        img {
+          vertical-align: unset;
+          width: 56px;
+          height: 56px;
+        }
+      }
+
+      .logo-name {
+        position: relative;
+        height: 56px;
+        font-size: 0;
+
+        img {
+          vertical-align: unset;
+          height: 56px;
+        }
+      }
+      
+      h3 {
+        margin: 0;
+        color: @dark-blue;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        
+        // 科技感字体效果
+        background: linear-gradient(120deg, @primary-blue, @dark-blue);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+      }
+    }
+    
+    .header-menu {
+      flex: 1;
+      border-bottom: none;
+      background: transparent;
+      
+      .ant-menu-item, .ant-menu-submenu {
+        padding: 0 20px;
+        margin: 0 4px;
+        
+        a {
+          color: @gray-6;
+          font-size: 16px;
+          transition: all 0.3s ease;
+        }
+        
+        &:hover {
+          a {
+            color: @primary-blue;
+          }
+          
+          &::after {
+            border-bottom-color: @primary-blue !important;
+          }
+        }
+        
+        &.ant-menu-item-selected, &.ant-menu-submenu-selected {
+          a {
+            color: @primary-blue;
+          }
+          
+          &::after {
+            border-bottom-color: @primary-blue !important;
+          }
+        }
+      }
+      
+      // 添加二级菜单样式
+      .ant-menu-submenu {
+        padding: 0 20px;
+        margin: 0 4px;
+        
+        .ant-menu-submenu-title {
+          color: @gray-6;
+          font-size: 16px;
+          transition: all 0.3s ease;
+          
+          &:hover {
+            color: @primary-blue;
+            
+            &::after {
+              border-bottom-color: @primary-blue !important;
+            }
+          }
+        }
+        
+        &.ant-menu-submenu-selected {
+          .ant-menu-submenu-title {
+            color: @primary-blue;
+            
+            &::after {
+              border-bottom-color: @primary-blue !important;
+            }
+          }
+        }
+        
+        // 下拉菜单样式
+        .ant-menu-sub {
+          background: rgba(255, 255, 255, 0.9);
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          
+          .ant-menu-item {
+            padding: 0 20px;
+            
+            a {
+              color: @gray-6;
+              
+              &:hover {
+                color: @primary-blue;
+              }
+            }
+            
+            &.ant-menu-item-selected a {
+              color: @primary-blue;
+            }
+          }
+        }
+      }
+    }
+
+    // 移动端菜单按钮
+    .mobile-menu {
+      margin-left: auto;
+      
+      .ant-btn {
+        font-size: 20px;
+        padding: 0 12px;
+        height: 64px;
+        color: @dark-blue;
+      }
+    }
+  }
+
+  // 添加一个伪元素来增强毛玻璃效果
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: -1;
+  }
+}
+
+// 响应式调整
+@media (max-width: 991px) {
+  .app-header {
+    .header-content {
+      .logo {
+        .logo-mark {
+          position: relative;
+          width: 24px;
+          height: 24px;
+          font-size: 0;
+
+          img {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+          }
+
+          &::after {
+            width: 12px;
+            height: 12px;
+          }
+        }
+
+        .logo-name {
+          position: relative;
+          width: 100px;
+          height: 24px;
+          font-size: 0;
+          
+          img {
+            position: absolute;
+            width: 100px;
+            height: 26px;
+          }
+
+          &::after {
+            width: 12px;
+            height: 12px;
+          }
+        }
+        
+        h3 {
+          font-size: 26px;
+        }
+      }
+      
+      .header-menu {
+        .ant-menu-item {
+          padding: 0 12px;
+          margin: 0 2px;
+          
+          a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 移动端抽屉菜单样式
+.mobile-drawer {
+  .ant-drawer-body {
+    padding: 0;
+    
+    .ant-menu {
+      border: none;
+      
+      .ant-menu-item,
+      .ant-menu-submenu {
+        line-height: 50px;
+        
+        a {
+          color: @gray-6;
+          
+          &:hover {
+            color: @primary-blue;
+          }
+        }
+      }
+      
+      .ant-menu-submenu-title {
+        height: 50px;
+        line-height: 50px;
+      }
+      
+      .ant-menu-item-selected a {
+        color: @primary-blue;
+      }
+    }
+  }
+} 

@@ -1,0 +1,787 @@
+@import '../../styles/theme.less';
+
+.home-carousel {
+  margin: 0;
+  
+  .slick-slider {
+    padding: 0;
+  }
+  
+  .carousel-item {
+    height: 600px;
+    
+    .carousel-content {
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      overflow: hidden;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at center,
+          transparent 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+      }
+
+      .carousel-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      
+      .carousel-text {
+        position: absolute;
+        left: 50%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+        text-align: left;
+        color: #fff;
+        width: 1200px;
+        max-width: 1248px;
+        
+        h2 {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: none;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        p {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: none;
+          margin-bottom: 12px;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        }
+      }
+    }
+
+    &.active {
+      .carousel-text {
+        h2 {
+          font-size: 40px;
+          animation: fadeInUp 0.8s ease forwards;
+          animation-delay: 0.2s;
+        }
+        
+        p {
+          font-size: 30px;
+          animation: fadeInUp 0.8s ease forwards;
+          animation-delay: 0.4s;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// 自定义轮播图指示器样式
+.ant-carousel .slick-dots {
+  li {
+    button {
+      background: #fff;
+      opacity: 0.4;
+    }
+    
+    &.slick-active button {
+      opacity: 1;
+    }
+  }
+}
+
+.company-intro {
+  padding: 80px 0;
+  
+  .intro-content {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+    
+    .section-header {
+      &:extend(.section-header all);
+      
+      h2 {
+        font-size: 32px;  // 强制设置字号
+      }
+    }
+    
+    .intro-image {
+      height: 360px;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: @box-shadow;
+      }
+      
+      .tech-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+    
+    .ant-typography {
+      color: @gray-6;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .intro-content-text {
+      text-indent: 2em;
+      font-size: 18px;
+    }
+
+    .intro-highlights {
+      margin: 24px 0;
+
+      .highlight-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 16px;
+        
+        .highlight-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: #1890ff; // 使用主题蓝色，可以根据需要调整
+          margin-right: 12px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+// 党群工作
+.party-working {
+  padding-top: 80px;
+
+  .section-content {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .global-map {
+    height: 500px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 24px;
+    
+    .map-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+  
+  .global-description {
+    text-align: center;
+    font-size: 18px;
+    color: @gray-6;
+    max-width: 800px;
+    margin: 24px auto 0;
+
+    h2 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+  }
+}
+
+.group-honor {
+  padding: 80px 0;
+  background: #fff;
+
+  .section-content {
+    max-width: 1248px;
+    padding: 0 24px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    &:extend(.section-header all);
+  }
+
+  .culture-card {
+    height: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: @box-shadow-light;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: @box-shadow;
+    }
+    
+    h3 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    p {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .tech-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      &.tech-overlay-contain {
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+}
+
+.news-section {
+  padding: 80px 0;
+  background: #fff;
+
+  .section-content {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    
+    h2 {
+      color: @dark-blue;
+      margin: 0;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 60px;
+        height: 3px;
+        background: @primary-blue;
+      }
+    }
+    
+    .view-more {
+      color: @primary-blue;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: @primary-blue;
+      }
+    }
+  }
+  
+  // 添加一个包装容器来处理hover效果
+  .featured-news-wrapper {
+    padding-top: 5px;  // 为上移动画预留空间
+    margin-top: -5px;  // 补偿上方预留的空间
+  }
+  
+  .featured-news {
+    height: 452px;  // 调整为右侧三个卡片的总高度 (140px * 3 + 16px * 2)
+    position: relative;
+    border-radius: 8px;
+    // 移除 overflow: hidden，仅保留在内容区
+    transition: all 0.3s ease;
+    background-size: cover !important;
+    background-position: center !important;
+    box-shadow: @box-shadow-light;
+
+    .news-image {
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+
+    
+    .news-content-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;  // 移到这里来控制内容溢出
+      border-radius: 8px;  // 保持圆角效果
+      
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          to bottom,
+          transparent 0%,
+          rgba(0, 0, 0, 0.7) 100%
+        );
+      }
+    }
+    
+    .news-content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px;
+      z-index: 1;
+      
+      .news-date {
+        color: @primary-blue;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+      }
+      
+      h3 {
+        color: #fff;
+        font-size: 24px;
+        margin: 0 0 16px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      }
+      
+      p {
+        color: @gray-6;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 0 0 16px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      }
+
+      .ant-tag {
+        padding: 4px 12px;
+        font-size: 14px;
+        border: none;
+        margin-bottom: 12px;
+      }
+    }
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: @box-shadow;
+    }
+  }
+  
+  .news-list {
+    height: 100%;  // 确保列表容器高度与特色新闻一致
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  // 均匀分布卡片
+    
+    .news-card {
+      background: #fff;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      border-left: 6px solid transparent;
+      
+      &:hover {
+        transform: translateX(-6px);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        border-left: 6px solid @primary-blue;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .news-card-content {
+        .news-info {
+          .news-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            
+            h3 {
+              margin: 0;
+              margin-right: 10px;
+              color: @dark-blue;
+              font-size: 16px;
+            }
+            
+            .view-detail {
+              flex: 0 0 74px;
+              color: @gray-6;
+              font-size: 14px;
+              transition: all 0.3s ease;
+              
+              &:hover {
+                color: @primary-blue;
+              }
+            }
+          }
+          
+          .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+            
+            .ant-tag {
+              margin: 0;
+            }
+            
+            .news-date {
+              color: @gray-5;
+              font-size: 13px;
+            }
+          }
+          
+          .news-summary {
+            font-size: 14px;
+            color: @gray-7;
+            margin: 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+        }
+        
+        .news-date {
+          font-size: 13px;
+          color: @gray-5;
+        }
+      }
+    }
+  }
+}
+
+// 添加淡入淡出效果
+.ant-carousel {
+  .slick-slide {
+    pointer-events: none;
+    
+    &.slick-active {
+      pointer-events: auto;
+    }
+  }
+}
+
+.ant-carousel .slick-fade {
+  .slick-slide {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    
+    &.slick-active {
+      opacity: 1;
+    }
+  }
+}
+
+// 特色新闻的摘要
+.featured-news {
+  .news-content {
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+}
+
+// 新闻列表的标题和摘要
+.news-list {
+  .news-card {
+    .news-info {
+      h3, p {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+// 业务展示部分
+.business-showcase {
+  padding: 80px 0;
+  background: @gray-2;
+  
+  .section-content {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 0 24px;
+    
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      
+      h2 {
+        color: @dark-blue;
+        margin: 0;
+        position: relative;
+        
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: -8px;
+          width: 60px;
+          height: 3px;
+          background: @primary-blue;
+        }
+      }
+      
+      .view-more {
+        color: @primary-blue;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        
+        .anticon {
+          margin-left: 4px;
+          font-size: 12px;
+        }
+        
+        &:hover {
+          color: @primary-blue;
+        }
+      }
+    }
+  }
+  
+  .showcase-card {
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: @box-shadow-light;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: @box-shadow;
+    }
+    
+    .tech-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      text-align: center;
+      line-height: 200px;
+      font-size: 0;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        vertical-align: baseline;
+      }
+    }
+    
+    .card-content {
+      position: relative;
+      z-index: 1;
+      padding: 24px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      
+      p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        line-height: 1.5;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+        position: absolute;
+        bottom: 0;
+        right: 24px;
+      }
+    }
+  }
+}
+
+// 响应式调整
+@media (max-width: 991px) {
+  .home-carousel .carousel-item {
+    height: 280px;
+
+    .carousel-content {
+      .carousel-text {
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        text-align: center;
+        color: #fff;
+        width: 100%;
+
+        p {
+          font-size: 18px;
+        }
+
+        h2 {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  .company-intro {
+    .intro-content {
+      .intro-image {
+        height: 280px;
+        margin-top: 24px;
+      }
+    }
+  }
+
+  .party-working {
+    .global-map {
+      height: 240px;
+    }
+  }
+
+  .news-section {
+    padding: 40px 0;
+    
+    .featured-news {
+      margin-bottom: 24px;
+    }
+  }
+
+  .business-showcase {
+    padding: 40px 0;
+    
+    .section-content {
+      h2 {
+        margin-bottom: 32px;
+      }
+      
+      .showcase-card {
+        height: 160px;
+        
+        .card-content {
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.featured-news {
+  transition: background 0.3s ease;
+  
+  .news-content {
+    transition: all 0.3s ease;
+  }
+} 

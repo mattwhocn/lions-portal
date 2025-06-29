@@ -1,0 +1,50 @@
+@import './theme.less';
+@primary-color: #1890ff;
+@layout-header-height: 64px;
+
+.app-container {
+  min-height: 100vh;
+  
+  .app-header {
+    background: #fff;
+    padding: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    
+    h3 {
+      margin: 0;
+      line-height: @layout-header-height;
+      color: @primary-color;
+    }
+  }
+  
+  .app-content {
+    padding: @layout-header-height 0 0;
+    
+    .ant-btn {
+      &:hover {
+        transform: scale(1.05);
+        transition: transform 0.2s;
+      }
+    }
+  }
+}
+
+.back-to-top {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #fff;
+  color: @primary-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background: #fff;
+    color: @primary-blue;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+} 

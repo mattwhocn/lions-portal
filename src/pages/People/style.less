@@ -1,0 +1,196 @@
+@import '../../styles/theme.less';
+@import '../../styles/common.less';
+
+.people-page {
+  padding: 0 0 80px;
+  
+  .page-banner {
+    &:extend(.page-banner all);
+  }
+
+  .tabs-wrapper {
+    position: relative;
+    background: #fff;
+    z-index: 900;
+    
+    .tabs-container {
+      width: 100%;
+      transition: all 0.3s ease;
+      
+      &.affix-active {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+      }
+      
+      .people-tabs {
+        max-width: 1248px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        
+        .ant-tabs-nav {
+          margin: 0;
+          
+          .ant-tabs-tab {
+            font-size: 16px;
+            padding: 8px 20px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+            
+            &:hover {
+              color: @primary-blue;
+            }
+            
+            &.ant-tabs-tab-active {
+              .ant-tabs-tab-btn {
+                color: @primary-blue;
+              }
+            }
+          }
+          
+          .ant-tabs-ink-bar {
+            background: @primary-blue;
+            height: 2px;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  .people-container {
+    max-width: 1248px;
+    margin: 0 auto;
+    padding: 24px;
+    
+    .people-content {
+      padding-top: 0;
+    }
+    
+    .ant-tabs-content {
+      padding: 0;
+    }
+    
+    .people-card {
+      cursor: pointer;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      border: none;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: @box-shadow;
+        
+        .people-image {
+          transform: scale(1.05);
+          
+          .image-overlay {
+            background: rgba(0, 0, 0, 0.3);
+          }
+        }
+        
+        .people-info {
+          h3 {
+            color: @primary-blue;
+          }
+        }
+      }
+      
+      .people-image {
+        height: 200px;
+        background-size: cover !important;
+        background-position: center !important;
+        position: relative;
+        transition: all 0.3s ease;
+        
+        .image-overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.2);
+          transition: all 0.3s ease;
+          border-radius: 8px;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      
+      .people-info {
+        padding-top: 20px;
+        
+        .people-category {
+          display: inline-block;
+          padding: 4px 12px;
+          background: rgba(250, 173, 20, 0.1);
+          color: @primary-blue;
+          border-radius: 4px;
+          font-size: 14px;
+          margin-bottom: 12px;
+        }
+        
+        h3 {
+          font-size: 18px;
+          margin: 0 0 12px;
+          color: @dark-blue;
+          transition: all 0.3s ease;
+          line-height: 1.4;
+          display: -webkit-box;
+          line-clamp: 2;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        p {
+          color: @gray-6;
+          font-size: 14px;
+          line-height: 1.6;
+          margin: 0 0 16px;
+          display: -webkit-box;
+          line-clamp: 2;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        .people-date {
+          color: @gray-5;
+          font-size: 14px;
+        }
+        
+        .ant-tag {
+          margin-bottom: 12px;
+          padding: 4px 12px;
+          font-size: 14px;
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+// 响应式调整
+@media (max-width: 991px) {
+  .people-page {
+    .people-container {
+      .people-tabs {
+        .ant-tabs-nav {
+          .ant-tabs-tab {
+            font-size: 16px;
+            padding: 8px 16px;
+            margin: 0 4px;
+          }
+        }
+      }
+    }
+  }
+} 

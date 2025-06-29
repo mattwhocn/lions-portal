@@ -1,0 +1,53 @@
+// 主色调 - 调整为更深沉的蓝色
+@primary-blue: #0f2a83;       // 主要蓝色（深邃蓝）
+@dark-blue: #001529;          // 深蓝色
+
+// 灰色系
+@gray-1: #ffffff;             // 纯白
+@gray-2: #fafafa;             // 背景灰
+@gray-3: #f0f2f5;             // 浅灰
+@gray-4: #d9d9d9;             // 中灰
+@gray-5: #8c8c8c;             // 深灰
+@gray-6: #262626;             // 近黑
+@gray-7: #595959;             // 添加这个颜色
+@gray-8: #434343;
+@gray-9: #262626;
+@gray-10: #1f1f1f;
+
+// 科技感渐变 - 调整为更细腻的渐变
+@tech-gradient: linear-gradient(
+  135deg,
+  @dark-blue 0%,
+  #001f3d 30%,
+  #002952 60%,
+  @primary-blue 100%
+);
+
+// 金属质感渐变
+@metal-gradient: linear-gradient(
+  90deg,
+  #262626 0%,
+  #404040 50%,
+  #262626 100%
+);
+
+// 科技感网格
+@tech-grid: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+            linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+// 阴影
+@box-shadow-light: 0 2px 8px rgba(0, 0, 0, 0.1);
+@box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+@text-shadow: 0 0 10px rgba(0, 80, 179, 0.5);
+
+// 相应地调整金色光晕的颜色
+.app-footer {
+  &::after {
+    background: radial-gradient(
+      circle at 50% 0%,
+      rgba(212, 136, 6, 0.05) 0%,
+      rgba(212, 136, 6, 0.02) 25%,
+      transparent 50%
+    );
+  }
+} 
