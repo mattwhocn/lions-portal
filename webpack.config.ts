@@ -82,7 +82,7 @@ const config: Configuration = {
     static: {
       directory: path.join(__dirname, 'public'),
     },
-    port: 8000,
+    port: 4000,
     hot: true,
     historyApiFallback: true,
   },

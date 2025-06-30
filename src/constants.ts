@@ -1,1 +1,1 @@
-export const API_DOMAIN = 'https://www.xiongshi.com';
+export const API_DOMAIN = 'http://39.105.169.82:4002';
