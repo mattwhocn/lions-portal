@@ -11,7 +11,6 @@ import companyImage from '../../assets/images/about/company.png';
 import partyBuilding from '../../assets/images/people/party-building.png';
 import { companyProfile } from '../About';
 import { newsContent, NewsItem } from '../News/helper';
-import { gradients } from '@/utils/gradients';
 import { formatExcelDate } from '../News/Detail';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import { API_DOMAIN } from '@/constants';
@@ -131,7 +130,7 @@ const Home: React.FC = () => {
         {bannerData.map((item, index) => (
           <div key={item?.title}>
             <div className={`carousel-item carousel-item-${index}`}>
-              <div className="carousel-content" style={{ background: gradients.techBlue }}>
+              <div className="carousel-content">
                 {item?.image && <img 
                   src={item?.image}
                   alt={item?.title}
@@ -221,7 +220,7 @@ const Home: React.FC = () => {
                 <div className="news-image">
                   <div className="image-overlay">
                     {/* <img src={displayedNews?.cover} alt={displayedNews?.title} /> */}
-                    <div style={{ width: '100%', height: '100%', background: gradients.techBlue }} />
+                    <div style={{ width: '100%', height: '100%', background: 'blue' }} />
                   </div>  
                 </div>
                 <div className="news-content">

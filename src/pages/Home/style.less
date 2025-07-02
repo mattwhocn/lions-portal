@@ -112,6 +112,7 @@
 
 .company-intro {
   padding: 40px 0;
+  background: @blue-2;
   
   .intro-content {
     max-width: 1248px;
@@ -315,39 +316,7 @@
   }
   
   .section-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 40px;
-    
-    h2 {
-      color: @dark-blue;
-      margin: 0;
-      position: relative;
-      
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -8px;
-        width: 60px;
-        height: 3px;
-        background: @primary-blue;
-      }
-    }
-    
-    .view-more {
-      color: @primary-blue;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        color: @primary-blue;
-      }
-    }
+    &:extend(.section-header all);
   }
   
   // 添加一个包装容器来处理hover效果
@@ -614,43 +583,7 @@
     padding: 0 24px;
     
     .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-      
-      h2 {
-        color: @dark-blue;
-        margin: 0;
-        position: relative;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -8px;
-          width: 60px;
-          height: 3px;
-          background: @primary-blue;
-        }
-      }
-      
-      .view-more {
-        color: @primary-blue;
-        display: flex;
-        align-items: center;
-        font-size: 16px;
-        transition: all 0.3s ease;
-        
-        .anticon {
-          margin-left: 4px;
-          font-size: 12px;
-        }
-        
-        &:hover {
-          color: @primary-blue;
-        }
-      }
+      &:extend(.section-header all);
     }
   }
   

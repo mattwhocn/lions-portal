@@ -2,6 +2,11 @@
 @primary-blue: #0f2a83;       // 主要蓝色（深邃蓝）
 @dark-blue: #001529;          // 深蓝色
 
+// 蓝色系背景
+@blue-1: #ffffff;            // 纯白
+@blue-2: #f3f5ff;            // 背景蓝色
+@blue-3: #d8e0ff;            // 浅蓝色
+
 // 灰色系
 @gray-1: #ffffff;             // 纯白
 @gray-2: #fafafa;             // 背景灰
@@ -13,6 +18,15 @@
 @gray-8: #434343;
 @gray-9: #262626;
 @gray-10: #1f1f1f;
+
+// 安全感渐变 - 军蓝色
+@safe-gradient: radial-gradient(
+  circle at center,
+  @primary-blue 0%,
+  @primary-blue 30%,
+  @primary-blue 60%,
+  #003366 100%
+);
 
 // 科技感渐变 - 调整为更细腻的渐变
 @tech-gradient: linear-gradient(

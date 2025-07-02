@@ -9,7 +9,6 @@ import {
   TeamOutlined
 } from '@ant-design/icons';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { gradients } from '../../utils/gradients';
 import cooperative from '../../assets/images/contact/cooperative.png';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import './style.less';
@@ -29,96 +28,10 @@ export const contactInfo = {
 const Contact: React.FC = () => {
   usePageTitle('联系我们');
 
-  const friendlyLinks = [
-    {
-      name: '首都实业投资有限公司',
-      url: 'https://www.cap-ii.com/',
-      icon: <BankOutlined />
-    },
-    {
-      name: '北京市保安服务有限公司',
-      url: 'http://www.baoan.com.cn/',
-      icon: <SafetyCertificateOutlined />
-    },
-    {
-      name: '山东星网数据产业有限公司',
-      url: 'http://www.starnetgis.com/',
-      icon: <GlobalOutlined />
-    },
-    {
-      name: '北京晨豪科技有限公司',
-      url: 'https://safe360.cn/',
-      icon: <SafetyOutlined />
-    },
-    {
-      name: '中祥云智慧科技有限公司',
-      url: 'http://www.zxyiot.cn/',
-      icon: <CloudOutlined />
-    },
-    {
-      name: '北京智图九州科技有限公司',
-      url: 'https://www.ztjzsoft.com/',
-      icon: <RocketOutlined />
-    },
-    {
-      name: '中国电子信息产业集团有限公司',
-      url: 'https://www.cec.com.cn/',
-      icon: <ApartmentOutlined />
-    },
-    {
-      name: '中电太极（集团）有限公司',
-      url: 'http://www.nci.ac.cn/',
-      icon: <BuildOutlined />
-    },
-    {
-      name: '北京保安协会', 
-      url: 'http://www.bjbaw.cn/',
-      icon: <SecurityScanOutlined />
-    },
-    {
-      name: '北京消防协会',
-      url: 'http://www.beijingfire.com/home/index.php',
-      icon: <FireOutlined />
-    },
-    {
-      name: '北京安全防范行业协会',
-      url: 'https://www.bspia.com.cn/',
-      icon: <SafetyCertificateOutlined />
-    },
-    {
-      name: '中国红十字会',
-      url: 'https://www.redcross.org.cn/',
-      icon: <HeartOutlined />
-    },
-    {
-      name: '北京市大兴区红十字会',
-      url: 'https://daxing.bjredcross.org.cn/',
-      icon: <MedicineBoxOutlined />
-    },
-    {
-      name: '中羚泰和科技有限公司',
-      url: 'http://www.zlthkj.cn/',
-      icon: <GlobalOutlined />
-    },
-    {
-      name: '北京济宁企业商会',
-      url: 'https://www.rushangjining.cn/sy',
-      icon: <TeamOutlined />
-    },
-    {
-      name: '中科星图股份有限公司',
-      url: 'https://www.geovis.com.cn',
-      icon: <CompassOutlined />
-    },
-  ];
-
   return (
     <Content className="contact-page">
       {/* 顶部横幅 */}
-      <div 
-        className="page-banner"
-        style={{ background: gradients.techBlue }}
-      >
+      <div className="page-banner">
         <div className="banner-content">
           <h1>联系我们</h1>
           <p>随时恭候您的咨询，我们将竭诚为您服务</p>

@@ -6,61 +6,6 @@
     &:extend(.page-banner all);
   }
 
-  .contact-banner {
-    height: 360px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    padding-top: 64px;
-    background-size: cover;
-    background-position: center;
-    
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4));
-    }
-    
-    .banner-content {
-      position: relative;
-      z-index: 1;
-      color: #fff;
-      max-width: 800px;
-      padding: 0 24px;
-      
-      h1 {
-        font-size: 42px;
-        font-weight: 600;
-        margin-bottom: 20px;
-        color: #fff;
-        letter-spacing: 1px;
-      }
-      
-      p {
-        font-size: 18px;
-        opacity: 0.95;
-        line-height: 1.6;
-      }
-    }
-    
-    .tech-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: @tech-grid;
-      opacity: 0.15;
-    }
-  }
-
   section {
     padding: 80px 0;
     

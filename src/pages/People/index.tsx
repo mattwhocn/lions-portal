@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Layout, Tabs, Affix } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { gradients } from '../../utils/gradients';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import './style.less';
 
@@ -47,10 +46,7 @@ const People: React.FC = () => {
   return (
     <Content className="people-page">
       {/* 顶部配图 */}
-      <div 
-        className="page-banner"
-        style={{ background: gradients.techBlue }}
-      >
+      <div className="page-banner">
         <div className="banner-content">
           <h1>党群工作</h1>
           <p>关注党群工作，了解工会、团建等相关内容</p>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout, Row, Col, Typography, Card, Space } from 'antd';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { gradients } from '../../utils/gradients';
 import Elevator from '../../components/Elevator';
 import companyImage from '../../assets/images/about/company.png';
 import qualifications11 from '../../assets/images/about/qualifications/1 1.jpg';
@@ -190,7 +189,9 @@ const About: React.FC = () => {
       {/* 公司简介 */}
       <section id="profile" className="section-profile">
         <div className="section-content">
-          <Title level={2}>{companyProfile.title}</Title>
+          <div className="section-header">
+            <Title level={2}>{companyProfile.title}</Title>
+          </div>
           <Row gutter={[48, 24]} align="middle">
             <Col xs={24} lg={12}>
               <div className="profile-image">
@@ -219,7 +220,9 @@ const About: React.FC = () => {
       {/* 领导简介 */}
       <section id="management" className="management-team">
         <div className="section-content">
-          <Title level={2}>领导简介</Title>
+          <div className="section-header">
+            <Title level={2}>领导简介</Title>
+          </div>
           {isSingleManager ? (
             // 单个管理层成员时的布局
             <Row gutter={[48, 48]} align="middle">
@@ -275,7 +278,9 @@ const About: React.FC = () => {
       {/* 资质与荣誉 */}
       <section id="qualifications" className="section-qualifications">
         <div className="section-content">
-          <Title level={2}>{qualifications.title}</Title>
+          <div className="section-header">
+            <Title level={2}>{qualifications.title}</Title>
+          </div>
           <Row gutter={[24, 24]}>
             {qualifications.items.map((item, index) => (
               <Col xs={24} sm={12} md={6} key={index}>
@@ -285,7 +290,6 @@ const About: React.FC = () => {
                 >
                   <div className="tech-overlay">
                     {/* <img src={item} alt="资质与荣誉" /> */}
-                    <div style={{ background: gradients.techBlue }} />
                   </div>
                 </div>
               </Col>

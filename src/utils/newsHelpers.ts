@@ -1,5 +1,3 @@
-import { gradients } from './gradients';
-
 // 新闻类型对应的颜色
 export const getNewsTagColor = (category: string) => {
   switch (category) {
@@ -13,19 +11,3 @@ export const getNewsTagColor = (category: string) => {
       return 'blue';
   }
 };
-
-// 新闻类型对应的背景渐变
-export const getNewsBackground = (index: number) => {
-  switch (index % 4) {
-    case 0:
-      return gradients.techBlue;
-    case 1:
-      return gradients.businessBlue;
-    case 2:
-      return gradients.techMix;
-    case 3:
-      return gradients.businessBlue;
-    default:
-      return gradients.techGold;
-  }
-}; 

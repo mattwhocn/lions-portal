@@ -7,7 +7,6 @@ import remarkGfm from 'remark-gfm';
 import { usePageTitle } from '../../../hooks/usePageTitle';
 import { getNewsTagColor } from '../../../utils/newsHelpers';
 import { newsContent, NewsItem } from '../helper';
-import { gradients } from '@/utils/gradients';
 import axios from 'axios';
 import './style.less';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
@@ -142,7 +141,7 @@ const NewsDetail: React.FC = () => {
   return (
     <Content className="news-detail-page">
       {/* 顶部配图 */}
-      <div className="page-banner" style={{ background: gradients.techBlue }}>
+      <div className="page-banner">
         <div className="banner-content">
           <h1>{newsData?.title}</h1>
         </div>

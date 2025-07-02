@@ -1,18 +1,11 @@
 @import '../../../styles/theme.less';
+@import '../../../styles/common.less';
 
 .news-detail-page {
   padding: 0 0 80px;
 
-  .detail-banner {
-    height: 400px;
-    position: relative;
-    
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      background: @tech-gradient;
-    }
+  .page-banner {
+    &:extend(.page-banner all);
   }
   
   .detail-container {

@@ -5,28 +5,17 @@
     padding: 60px 0;
     
     &:nth-child(even) {
-      background: @gray-2;
+      background: @blue-2;
     }
     
     .section-content {
       max-width: 1248px;
       margin: 0 auto;
       padding: 0 24px;
-      
-      h2 {
-        color: @dark-blue;
-        margin-bottom: 40px;
-        position: relative;
-        
-        &::after {
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: -8px;
-          width: 60px;
-          height: 3px;
-          background: @primary-blue;
-        }
+      position: relative;
+
+      .section-header {
+        &:extend(.section-header all);
       }
     }
   }

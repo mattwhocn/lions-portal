@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Layout, Tabs, Row, Col, Card, Affix, Tag, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { usePageTitle } from '../../hooks/usePageTitle';
-import { gradients } from '../../utils/gradients';
 import { getNewsTagColor } from '../../utils/newsHelpers';
 import { newsContent, NewsItem } from './helper';
 import './style.less';
@@ -70,10 +69,7 @@ const News: React.FC = () => {
   return (
     <Content className="news-page">
       {/* 顶部配图 */}
-      <div 
-        className="page-banner"
-        style={{ background: gradients.techBlue }}
-      >
+      <div className="page-banner">
         <div className="banner-content">
           <h1>新闻动态</h1>
           <p>了解最新党建工作，公司新闻、行业规范</p>

@@ -1,7 +1,8 @@
 import { withErrorBoundary } from "@/components/ErrorBoundary"
 import { usePageTitle } from "@/hooks/usePageTitle";
-import { gradients } from "@/utils/gradients";
 import { Layout } from "antd";
+
+import './style.less';
 
 const { Content } = Layout;
 
@@ -11,10 +12,7 @@ const Business = () => {
   return (
     <Content className="business-page">
       {/* 顶部配图 */}
-      <div 
-        className="page-banner"
-        style={{ background: gradients.techBlue }}
-      >
+      <div className="page-banner">
         <div className="banner-content">
           <h1>业务领域</h1>
           <p>业务领域</p>
