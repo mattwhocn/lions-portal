@@ -1,6 +1,10 @@
 import { withErrorBoundary } from "@/components/ErrorBoundary"
 import { usePageTitle } from "@/hooks/usePageTitle";
 import { Layout } from "antd";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import organizationContent from '../../assets/organization-md/news1.md';
+import './index.less';
 
 const { Content } = Layout;
 
@@ -19,7 +23,24 @@ const Organization = () => {
       </div>
 
        <section className="organization-section">
-        两新组织
+        <div className="section-content markdown-content">
+          <ReactMarkdown 
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // 自定义渲染组件
+              h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
+              h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
+              p: ({ node, ...props }) => <p className="md-p" {...props} />,
+              ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
+              ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
+              li: ({ node, ...props }) => <li className="md-li" {...props} />,
+              img: ({ node, ...props }) => <img className="md-img" {...props} />,
+              blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
+            }}
+          >
+            {organizationContent}
+          </ReactMarkdown> 
+        </div>
       </section>
     </Content>
   )

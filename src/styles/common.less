@@ -14,6 +14,7 @@
     position: relative;
     z-index: 1;
     color: #fff;
+    animation: slideUp 0.5s ease-out;
     
     h1 {
       font-size: 32px;
@@ -44,6 +45,17 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -108,3 +120,73 @@
     }
   }
 } 
+
+// markdown 渲染样式
+.markdown-content {
+  color: @gray-7;
+  font-size: 16px;
+  line-height: 1.8;
+  
+  .md-h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 32px 0 24px;
+    color: @dark-blue;
+  }
+  
+  .md-h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 28px 0 20px;
+    color: @dark-blue;
+  }
+  
+  .md-p {
+    margin: 16px 0;
+    text-indent: 2em;
+  }
+
+  .md-blockquote {
+    text-align: center;
+  }
+  
+  .md-ul, .md-ol {
+    margin: 16px 0;
+    padding-left: 24px;
+    
+    .md-li {
+      margin: 8px 0;
+    }
+  }
+  
+  .md-img {
+    width: 50%;
+    height: auto;
+    border-radius: 8px;
+    transform: translateX(50%);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateX(50%) scale(1.05);
+    }
+  }
+  
+  code {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  }
+  
+  pre {
+    background: rgba(0, 0, 0, 0.06);
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    
+    code {
+      background: none;
+      padding: 0;
+    }
+  }
+}

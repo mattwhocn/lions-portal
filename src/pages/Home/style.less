@@ -1,4 +1,18 @@
 @import '../../styles/theme.less';
+@import '../../styles/common.less';
+
+.home-page {
+  section > div {
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(50px);
+  }
+  
+  section > div.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 .home-carousel {
   margin: 0;

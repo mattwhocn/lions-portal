@@ -1,11 +1,26 @@
 @import '../../styles/theme.less';
 
 .about-page {
+  section > div {
+    opacity: 0;
+    transition: opacity 1s ease, transform 1s ease;
+    transform: translateY(50px);
+  }
+  
+  section > div.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   section {
     padding: 60px 0;
     
     &:nth-child(even) {
       background: @blue-2;
+    }
+
+    .section-hash-mark {
+      transform: translateY(-140px);
     }
     
     .section-content {

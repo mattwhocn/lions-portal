@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Layout, Tabs, Affix } from 'antd';
 import { useNavigate } from 'react-router-dom';
-import { usePageTitle } from '../../hooks/usePageTitle';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import news1Content from '../../assets/people-md/news1.md';
+import news2Content from '../../assets/people-md/news1.md';
+import news3Content from '../../assets/people-md/news1.md';
+import { usePageTitle } from '../../hooks/usePageTitle';
 import './style.less';
 
 const { Content } = Layout;
@@ -11,15 +16,15 @@ const { TabPane } = Tabs;
 const TabConfig = [{
   key: '党建工作',
   title: '党建工作',
-  content: '党建工作，党建工作内容，党建工作内容，党建工作内容，党建工作内容，党建工作内容，党建工作内容，党建工作内容，党建工作内容'
+  content: news1Content
 }, {
   key: '工会工作',
   title: '工会工作',
-  content: '工会工作，工会工作内容，工会工作内容，工会工作内容，工会工作内容，工会工作内容，工会工作内容，工会工作内容，工会工作内容'
+  content: news2Content
 }, {
   key: '团建工作',
   title: '团建工作',
-  content: '团建工作，团建工作内容，团建工作内容，团建工作内容，团建工作内容，团建工作内容，团建工作内容，团建工作内容，团建工作内容'
+  content: news3Content
 }]
 
 const People: React.FC = () => {
@@ -31,6 +36,8 @@ const People: React.FC = () => {
   const tabContent = useMemo(() => {
     return TabConfig.find(tab => tab.key === activeTab)?.content;
   }, [activeTab]);
+
+  console.log(tabContent);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,8 +80,23 @@ const People: React.FC = () => {
 
       {/* 内容区域 */}
       <div className="people-container">
-        <div className="people-content">
-          {tabContent}
+        <div className="people-content markdown-content">
+          <ReactMarkdown 
+            remarkPlugins={[remarkGfm]}
+            components={{
+              // 自定义渲染组件
+              h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
+              h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
+              p: ({ node, ...props }) => <p className="md-p" {...props} />,
+              ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
+              ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
+              li: ({ node, ...props }) => <li className="md-li" {...props} />,
+              img: ({ node, ...props }) => <img className="md-img" {...props} />,
+              blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
+            }}
+          >
+            {tabContent}
+          </ReactMarkdown>  
         </div>
       </div>
     </Content>

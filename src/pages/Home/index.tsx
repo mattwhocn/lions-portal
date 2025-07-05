@@ -39,6 +39,42 @@ const Home: React.FC = () => {
   const [hoveredNews, setHoveredNews] = useState<NewsItem | null>(null);
   const [bannerData, setBannerData] = useState<any[]>(defaultBannerData);
   const [newsList, setNewsList] = useState<NewsItem[]>(newsContent);
+  const partyWorkingRef = React.useRef<HTMLDivElement>(null);
+  const companyIntroRef = React.useRef<HTMLDivElement>(null);
+  const newsRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (partyWorkingRef.current) {
+      observer.observe(partyWorkingRef.current);
+    }
+    if (companyIntroRef.current) {
+      observer.observe(companyIntroRef.current);
+    }
+    if (newsRef.current) {
+      observer.observe(newsRef.current);
+    }
+
+    return () => {
+      if (partyWorkingRef.current) {
+        observer.unobserve(partyWorkingRef.current);
+      }
+      if (companyIntroRef.current) {
+        observer.unobserve(companyIntroRef.current);
+      }
+      if (newsRef.current) {
+        observer.unobserve(newsRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     // 初始化时为第一个 slide 添加 active 类
@@ -148,7 +184,7 @@ const Home: React.FC = () => {
 
       {/* 两新组织*/}
       <section className="party-working">
-        <div className="section-content">
+        <div className="section-content" ref={partyWorkingRef}>
           <div className="section-header">
             <Title level={2}>两新组织</Title>
           </div>
@@ -168,7 +204,7 @@ const Home: React.FC = () => {
 
       {/* 公司简介 */}
       <section className="company-intro">
-        <div className="intro-content">
+        <div className="intro-content" ref={companyIntroRef}>
           <div className="section-header">
             <Title level={2}>公司简介</Title>
           </div>
@@ -204,7 +240,7 @@ const Home: React.FC = () => {
 
       {/* 新闻动态 */}
       <section className="news-section">
-        <div className="section-content">
+        <div className="section-content" ref={newsRef}>
           <div className="section-header">
             <Title level={2}>新闻动态</Title>
             <Link to="/news" className="view-more">

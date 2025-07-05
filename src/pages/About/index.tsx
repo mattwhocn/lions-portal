@@ -96,6 +96,42 @@ const About: React.FC = () => {
   // 添加标志位，防止循环触发
   const isScrolling = React.useRef(false);
   const isHashChanging = React.useRef(false);
+  const profileRef = React.useRef<HTMLDivElement>(null);
+  const managementRef = React.useRef<HTMLDivElement>(null);
+  const qualificationsRef = React.useRef<HTMLDivElement>(null);
+
+   React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    if (profileRef.current) {
+      observer.observe(profileRef.current);
+    }
+    if (managementRef.current) {
+      observer.observe(managementRef.current);
+    }
+    if (qualificationsRef.current) {
+      observer.observe(qualificationsRef.current);
+    }
+
+    return () => {
+      if (profileRef.current) {
+        observer.unobserve(profileRef.current);
+      }
+      if (managementRef.current) {
+        observer.unobserve(managementRef.current);
+      }
+      if (qualificationsRef.current) {
+        observer.unobserve(qualificationsRef.current);
+      }
+    };
+  }, []);
 
   // 1. 处理 Hash 变化：触发页面定位和电梯组件选中
   React.useEffect(() => {
@@ -103,7 +139,7 @@ const About: React.FC = () => {
       if (isScrolling.current) return; // 如果是滚动触发的，则不处理
 
       isHashChanging.current = true;
-      const hash = window.location.hash.slice(1) || 'profile';
+      const hash = window.location.hash.slice(1);
       setActiveSection(hash);
       const element = document.getElementById(hash);
       if (element) {
@@ -163,7 +199,7 @@ const About: React.FC = () => {
     setActiveSection(key);
     isHashChanging.current = true;
     window.location.hash = key;
-    
+
     // 手动触发滚动，因为有些浏览器可能不会响应 hash 变化
     const element = document.getElementById(key);
     if (element) {
@@ -187,8 +223,9 @@ const About: React.FC = () => {
       />
       
       {/* 公司简介 */}
-      <section id="profile" className="section-profile">
-        <div className="section-content">
+      <section className="section-profile">
+        <div className='section-hash-mark' id="profile" />
+        <div className="section-content" ref={profileRef}>
           <div className="section-header">
             <Title level={2}>{companyProfile.title}</Title>
           </div>
@@ -218,8 +255,9 @@ const About: React.FC = () => {
       </section>
 
       {/* 领导简介 */}
-      <section id="management" className="management-team">
-        <div className="section-content">
+      <section className="management-team">
+        <div className='section-hash-mark' id="management" />
+        <div className="section-content" ref={managementRef}>
           <div className="section-header">
             <Title level={2}>领导简介</Title>
           </div>
@@ -276,8 +314,9 @@ const About: React.FC = () => {
       </section>
 
       {/* 资质与荣誉 */}
-      <section id="qualifications" className="section-qualifications">
-        <div className="section-content">
+      <section className="section-qualifications">
+        <div className='section-hash-mark' id="qualifications" />
+        <div className="section-content" ref={qualificationsRef}>
           <div className="section-header">
             <Title level={2}>{qualifications.title}</Title>
           </div>

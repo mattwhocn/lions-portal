@@ -8,7 +8,18 @@
     &:extend(.page-banner all);
   }
 
-  .business-section {
-    
+  section {
+    padding: 60px 0;
+
+    .section-content {
+      max-width: 1248px;
+      margin: 0 auto;
+      padding: 24px;
+      position: relative;
+
+      .section-header {
+        &:extend(.section-header all);
+      }
+    }
   }
 }
