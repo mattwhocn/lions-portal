@@ -22,4 +22,104 @@
       }
     }
   }
+
+  section.business-introduce-section {
+    .product-row {
+      &:not(:last-child) {
+        margin-bottom: 48px;
+      }
+    }
+
+    .product-image {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      
+      img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.05);
+      }
+
+      .tech-overlay {
+        position: relative;
+        overflow: hidden;
+      }
+    }
+
+    .product-info {
+      .product-info-title {
+        margin-bottom: 24px;
+      }
+
+      .product-info-description {
+        font-size: 16px;
+        line-height: 1.8;
+        text-indent: 2em;
+      }
+    }
+  }
+
+  section.business-cases-section {
+    .case-card {
+      height: 100%;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      .case-title {
+        margin-bottom: 24px;
+      }
+
+      .case-image {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+
+        .tech-overlay {
+          position: relative;
+          height: 100%;
+          overflow: hidden;
+          gap: 16px;
+          border-radius: 8px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+          }
+        }
+      }
+
+      .case-info {
+        padding: 24px 0;
+
+        .ant-typography {
+          font-size: 16px;
+          text-indent: 2em;
+        }
+
+        h4 {
+          margin-bottom: 16px;
+        }
+
+        p {
+          color: #666;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .case-card.no-border {
+      border: none;
+    }
+  }
 }
