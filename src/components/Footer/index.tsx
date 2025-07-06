@@ -38,7 +38,8 @@ const Footer: React.FC = () => {
                 <Col span={12}>
                   <div className="qr-code">
                     <div className="qr-code-placeholder">
-                      <img src={weixin} alt="weixin" />
+                      {/* <img src={weixin} alt="weixin" /> */}
+                      <div style={{ background: 'gray' }} />
                     </div>
                     <p>微信公众号</p>
                   </div>
@@ -46,7 +47,8 @@ const Footer: React.FC = () => {
                 <Col span={12}>
                   <div className="qr-code">
                     <div className="qr-code-placeholder">
-                      <img src={douyin} alt="douyin" />
+                      {/* <img src={douyin} alt="douyin" /> */}
+                      <div style={{ background: 'gray' }} />
                     </div>
                     <p>抖音号</p>
                   </div>
@@ -62,7 +64,7 @@ const Footer: React.FC = () => {
                 <div className="logo-mark">
                   <img src={logo} alt="雄狮国际" />
                 </div>
-                <h3>雄狮国际保安服务有限公司</h3>
+                <p>雄狮国际保安服务有限公司</p>
               </div>
             </div>
           </Col>
