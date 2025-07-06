@@ -119,7 +119,7 @@ const Business = () => {
                     {item.images.slice(0, 2).map((image, index) => (
                       <Col xs={24} sm={24} lg={12} key={index} className="tech-overlay">
                         {/* <img src={image} alt={item.title} /> */}
-                        <div style={{ width: '100%', height: '400px', background: 'blue' }} />
+                        <div style={{ width: '100%', height: '400px', background: 'blue', borderRadius: '8px' }} />
                       </Col>
                     ))}
                   </Row>

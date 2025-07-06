@@ -81,7 +81,8 @@ const People: React.FC = () => {
       {/* 内容区域 */}
       <div className="people-container">
         <div className="people-content markdown-content">
-          <ReactMarkdown 
+          <div>党建工作</div>
+          {/* <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             components={{
               // 自定义渲染组件
@@ -96,7 +97,7 @@ const People: React.FC = () => {
             }}
           >
             {tabContent}
-          </ReactMarkdown>  
+          </ReactMarkdown>   */}
         </div>
       </div>
     </Content>

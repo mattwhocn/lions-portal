@@ -24,7 +24,8 @@ const Organization = () => {
 
        <section className="organization-section">
         <div className="section-content markdown-content">
-          <ReactMarkdown 
+          <div>两新组织</div>
+          {/* <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             components={{
               // 自定义渲染组件
@@ -39,7 +40,7 @@ const Organization = () => {
             }}
           >
             {organizationContent}
-          </ReactMarkdown> 
+          </ReactMarkdown>  */}
         </div>
       </section>
     </Content>
