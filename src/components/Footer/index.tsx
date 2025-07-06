@@ -38,8 +38,7 @@ const Footer: React.FC = () => {
                 <Col span={12}>
                   <div className="qr-code">
                     <div className="qr-code-placeholder">
-                      {/* <img src={weixin} alt="weixin" /> */}
-                      <div style={{ background: 'gray' }} />
+                      <img src={weixin} alt="weixin" />
                     </div>
                     <p>微信公众号</p>
                   </div>
