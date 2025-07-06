@@ -37,8 +37,6 @@ const People: React.FC = () => {
     return TabConfig.find(tab => tab.key === activeTab)?.content;
   }, [activeTab]);
 
-  console.log(tabContent);
-
   useEffect(() => {
     const handleScroll = () => {
       const bannerHeight = document.querySelector('.people-banner')?.getBoundingClientRect().height || 0;
@@ -81,8 +79,7 @@ const People: React.FC = () => {
       {/* 内容区域 */}
       <div className="people-container">
         <div className="people-content markdown-content">
-          <div>党建工作</div>
-          {/* <ReactMarkdown 
+          <ReactMarkdown 
             remarkPlugins={[remarkGfm]}
             components={{
               // 自定义渲染组件
@@ -97,7 +94,7 @@ const People: React.FC = () => {
             }}
           >
             {tabContent}
-          </ReactMarkdown>   */}
+          </ReactMarkdown>  
         </div>
       </div>
     </Content>

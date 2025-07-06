@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import { getNewsTagColor } from '../../utils/newsHelpers';
 import { newsContent, NewsItem } from './helper';
-import './style.less';
 import axios from 'axios';
 import { formatExcelDate } from './Detail';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import { API_DOMAIN } from '@/constants';
+import './style.less';
 
 const { Content } = Layout;
 const { TabPane } = Tabs;
@@ -42,7 +42,6 @@ const News: React.FC = () => {
           date: formatExcelDate(item.date),
           category: item.type,
         }))
-        console.log(newsList);
         setNewsList(newsList);
       } catch (error) {
         console.error('获取news配置失败:', error);
@@ -98,12 +97,13 @@ const News: React.FC = () => {
       <div className="news-container">
         <div className="news-content">
           <Row gutter={[24, 24]}>
-              {filteredNews.length ? filteredNews.map(news => (
-                <Col xs={24} sm={12} lg={8} key={news.id}>
-                  <Card 
-                    className="news-card"
-                    onClick={() => handleNewsClick(news.id)}
-                  >
+            {filteredNews.length ? filteredNews.map(news => (
+              <Col xs={24} sm={24} lg={24} key={news.id}>
+                <Card 
+                  className="news-card"
+                  onClick={() => handleNewsClick(news.id)}
+                >
+                  <div className="news-card-content">
                     <div className="news-image">
                       <div className="image-overlay">
                         <img src={news.cover} alt={news.title} />
@@ -111,17 +111,19 @@ const News: React.FC = () => {
                     </div>
                     <div className="news-info">
                       <Tag color={getNewsTagColor(news.category)}>{news.category}</Tag>
-                      <h3>{news.title}</h3>
-                      <span className="news-date">{news.date}</span>
+                      <h2>{news.title}</h2>
+                      <p className="news-date">{news.date}</p>
+                      <p className="news-summary">{news.summary}</p>
                     </div>
-                  </Card>
-                </Col>
-              )) : (
+                  </div>
+                </Card>
+              </Col>
+            )) : (
               <Col span={24}>
                 <Empty style={{ margin: '100px' }} description="暂无相关新闻" />
               </Col>
             )}
-            </Row>
+          </Row>
         </div>
       </div>
     </Content>

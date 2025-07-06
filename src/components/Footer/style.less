@@ -12,7 +12,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: @tech-grid;
     background-size: 20px 20px;
     pointer-events: none;
   }
@@ -60,6 +59,8 @@
         
         &:hover {
           color: #ffffff;
+          font-weight: bold;
+          text-shadow: 0 0 8px rgba(250, 173, 20, 0.4);
         }
       }
       
@@ -67,8 +68,8 @@
         text-align: left;
         
         .qr-code-placeholder {
-          width: 120px;
-          height: 120px;
+          width: 100px;
+          height: 100px;
           margin: 0 0 12px;
           background: @gray-4;
           border-radius: 8px;
@@ -96,8 +97,7 @@
         margin-bottom: 16px;
         
         img {
-          width: 24px;
-          height: 24px;
+          height: 48px;
           border-radius: 6px;
           overflow: hidden;
         }
@@ -116,12 +116,7 @@
     }
     
     .footer-divider {
-      background: linear-gradient(
-        90deg,
-        transparent 0%,
-        rgba(250, 173, 20, 0.1) 50%,
-        transparent 100%
-      );
+      background: @blue-10;
       margin: 24px 0;
     }
     
@@ -136,7 +131,8 @@
           transition: all 0.3s ease;
           
           &:hover {
-            color: @primary-blue;
+            color: #ffffff;
+            font-weight: bold;
             text-shadow: 0 0 8px rgba(250, 173, 20, 0.4);
           }
         }
@@ -146,6 +142,16 @@
         margin: 0;
         color: @gray-5;
       }
+    }
+
+    .contact-content {
+      font-size: 20px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .contact-address {
+      margin-top: 20px;
     }
   }
 } 

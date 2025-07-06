@@ -11,6 +11,7 @@ export interface NewsItem {
   category: NewsCategory;
   cover?: string;
   content: string;
+  summary: string;
 }
 
 /**
@@ -31,6 +32,7 @@ export const newsContent: NewsItem[] = [
     title: "党建工作,党建工作党建工作,党建工作党建工作,党建工作,党建工作党建工作,党建工作",
     date: "2025-1-21",
     category: "党建工作",
+    summary: "党建工作,党建工作党建工作,党建工作党建工作,党建工作,党建工作党建工作,党建工作,党建工作,党建工作党建工作,党建工作党建工作,党建工作,党建工作党建工作,党建工作",
     content: news1Content,
     cover: extractFirstImageUrl(news1Content)
   },
@@ -39,6 +41,7 @@ export const newsContent: NewsItem[] = [
     title: "公司新闻,公司新闻公司新闻,公司新闻公司新闻公司新闻,公司新闻,公司新闻公司新闻",
     date: "2024-10-28",
     category: "公司新闻",
+    summary: "公司新闻,公司新闻公司新闻,公司新闻公司新闻公司新闻,公司新闻,公司新闻公司新闻,公司新闻,公司新闻公司新闻,公司新闻公司新闻公司新闻,公司新闻,公司新闻公司新闻",
     content: news2Content,
     cover: extractFirstImageUrl(news2Content)
   },
@@ -47,6 +50,7 @@ export const newsContent: NewsItem[] = [
     title: "行业规范,行业规范行业规范行业规范,行业规范,行业规范行业规范,行业规范行业规范",
     date: "2025-1-9",
     category: "行业规范",
+    summary: "行业规范,行业规范行业规范行业规范,行业规范,行业规范行业规范,行业规范行业规范,行业规范,行业规范行业规范行业规范,行业规范,行业规范行业规范,行业规范行业规范",
     content: news3Content,
     cover: extractFirstImageUrl(news3Content)
   },

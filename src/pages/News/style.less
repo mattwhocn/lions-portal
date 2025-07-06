@@ -79,7 +79,12 @@
       overflow: hidden;
       transition: all 0.3s ease;
       border: none;
-      
+
+      .news-card-content {
+        display: flex;
+        gap: 24px;
+      }
+
       &:hover {
         transform: translateY(-5px);
         box-shadow: @box-shadow;
@@ -100,7 +105,8 @@
       }
       
       .news-image {
-        height: 200px;
+        width: 240px;
+        height: 180px;
         background-size: cover !important;
         background-position: center !important;
         position: relative;
@@ -126,7 +132,7 @@
       }
       
       .news-info {
-        padding-top: 20px;
+        flex: 1;
         
         .news-category {
           display: inline-block;
@@ -166,6 +172,10 @@
         .news-date {
           color: @gray-5;
           font-size: 14px;
+        }
+
+        .news-summary {
+          color: @gray-6;
         }
         
         .ant-tag {
