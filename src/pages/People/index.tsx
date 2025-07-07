@@ -61,41 +61,35 @@ const People: React.FC = () => {
 
       {/* 只让 Tabs 导航栏吸顶 */}
       <div className="tabs-wrapper">
-        <Affix offsetTop={64}>
-          <div className={`tabs-container ${showAffix ? 'affix-active' : ''}`}>
-            <Tabs
-              activeKey={activeTab}
-              onChange={setActiveTab}
-              className="people-tabs"
-            >
-              <TabPane tab="党建工作" key="党建工作" />
-              <TabPane tab="工会工作" key="工会工作" />
-              <TabPane tab="团建工作" key="团建工作" />
-            </Tabs>
-          </div>
-        </Affix>
-      </div>
-
-      {/* 内容区域 */}
-      <div className="people-container">
-        <div className="people-content markdown-content">
-          <ReactMarkdown 
-            remarkPlugins={[remarkGfm]}
-            components={{
-              // 自定义渲染组件
-              h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
-              h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
-              p: ({ node, ...props }) => <p className="md-p" {...props} />,
-              ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
-              ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
-              li: ({ node, ...props }) => <li className="md-li" {...props} />,
-              img: ({ node, ...props }) => <img className="md-img" {...props} />,
-              blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
-            }}
-          >
-            {tabContent}
-          </ReactMarkdown>  
-        </div>
+        <Tabs
+          tabPosition="left"
+          activeKey={activeTab}
+          onChange={setActiveTab}
+          className="people-tabs"
+        >
+          {TabConfig.map((item) => (<TabPane tab={item.title} key={item.key}>
+            <div className="people-container">
+              <div className="people-content markdown-content">
+                <ReactMarkdown 
+                  remarkPlugins={[remarkGfm]}
+                  components={{
+                    // 自定义渲染组件
+                    h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
+                    p: ({ node, ...props }) => <p className="md-p" {...props} />,
+                    ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
+                    ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
+                    li: ({ node, ...props }) => <li className="md-li" {...props} />,
+                    img: ({ node, ...props }) => <img className="md-img" {...props} />,
+                    blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
+                  }}
+                >
+                  {tabContent}
+                </ReactMarkdown> 
+              </div>
+            </div>
+          </TabPane>))}
+        </Tabs>
       </div>
     </Content>
   );

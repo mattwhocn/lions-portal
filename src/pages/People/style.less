@@ -10,60 +10,54 @@
   }
 
   .tabs-wrapper {
-    position: relative;
-    background: #fff;
-    z-index: 900;
+    max-width: 1248px;
+    padding: 24px;
+    margin: 0 auto;
+
+    width: 100%;
+    transition: all 0.3s ease;
     
-    .tabs-container {
-      width: 100%;
-      transition: all 0.3s ease;
+    &.affix-active {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    }
+    
+    .people-tabs {
+      max-width: 1248px;
+      margin: 0 auto;
       
-      &.affix-active {
-        background: rgba(255, 255, 255, 0.85);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
-      }
-      
-      .people-tabs {
-        max-width: 1248px;
-        margin: 0 auto;
+      .ant-tabs-nav {
+        margin: 0;
         
-        .ant-tabs-nav {
-          margin: 0;
+        .ant-tabs-tab {
+          font-size: 16px;
+          padding: 16px 20px;
+          margin: 0 4px;
+          transition: all 0.3s ease;
           
-          .ant-tabs-tab {
-            font-size: 16px;
-            padding: 16px 20px;
-            margin: 0 4px;
-            transition: all 0.3s ease;
-            
-            &:hover {
+          &:hover {
+            color: @primary-blue;
+          }
+          
+          &.ant-tabs-tab-active {
+            .ant-tabs-tab-btn {
               color: @primary-blue;
             }
-            
-            &.ant-tabs-tab-active {
-              .ant-tabs-tab-btn {
-                color: @primary-blue;
-              }
-            }
           }
-          
-          .ant-tabs-ink-bar {
-            background: @primary-blue;
-            height: 2px;
-            border-radius: 2px;
-          }
+        }
+        
+        .ant-tabs-ink-bar {
+          background: @primary-blue;
+          height: 2px;
+          border-radius: 2px;
         }
       }
     }
   }
 
   .people-container {
-    max-width: 1248px;
-    margin: 0 auto;
-    padding: 24px;
-    
     .people-content {
       padding-top: 0;
     }
