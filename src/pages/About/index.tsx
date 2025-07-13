@@ -264,13 +264,13 @@ const About: React.FC = () => {
               </Paragraph>
             </Col>
           </Row>
-          <Row gutter={[12, 12]} align="middle" style={{ marginTop: '24px' }}>
+          <Row gutter={[24, 12]} align="middle" style={{ marginTop: '24px' }}>
             {companyProfile.infos?.map((item, index) => (
               <Col xs={24} lg={8}>
-                <Card bordered={false} title={<div style={{ textAlign: 'center' }}>{item.title}</div>}>
-                  <Paragraph key={index} className="profile-text">
+                <Card title={<div style={{ textAlign: 'center' }}>{item.title}</div>}>
+                  <p key={index} className="profile-text-p">
                     {item.paragraph}
-                  </Paragraph>
+                  </p>
                 </Card>
               </Col>
             ))}
@@ -325,7 +325,7 @@ const About: React.FC = () => {
           <div className="section-header">
             <Title level={2}>{qualifications.title}</Title>
           </div>
-          <div className="carousel-container">
+          {/* <div className="carousel-container">
             <Carousel className="carousel-wrapper" {...carouselConfig}>
               {qualifications.items.map((image, index) => (
                 <div className="carousel-item" key={index}>
@@ -333,8 +333,8 @@ const About: React.FC = () => {
                 </div>
               ))}
             </Carousel>
-          </div>
-          <Row gutter={[24, 24]}>
+          </div> */}
+          <Row gutter={[18, 24]}>
             {qualifications.items.map((item, index) => (
               <Col xs={24} sm={12} md={4} key={index}>
                 <div 

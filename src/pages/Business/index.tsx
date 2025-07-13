@@ -93,10 +93,10 @@ const Business = () => {
           <Row gutter={[24, 24]}>
             {coreProductsData.map((product) => (
               <Col xs={24} sm={24} lg={24} key={product.id}>
-                <Card className="case-card" variant="borderless">
+                <Card className="case-card">
                   <Row
                     key={product.id} 
-                    gutter={[12, 12]}
+                    gutter={[48, 48]}
                     align="middle" 
                     className="product-row"
                   >

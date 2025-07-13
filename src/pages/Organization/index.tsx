@@ -1,6 +1,6 @@
 import { withErrorBoundary } from "@/components/ErrorBoundary"
 import { usePageTitle } from "@/hooks/usePageTitle";
-import { Layout, Typography, Carousel } from "antd";
+import { Layout, Typography, Carousel, Card } from "antd";
 import organization1 from '../../assets/images/organization/organization1.jpg';
 import organization2 from '../../assets/images/organization/organization2.jpg';
 import organization3 from '../../assets/images/organization/organization3.jpg';
@@ -52,19 +52,21 @@ const Organization = () => {
           <div className="section-header">
             <Title level={2}>{organizationData.title}</Title>
           </div>
-          <div className="carousel-container">
-            <Carousel className="carousel-wrapper" {...carouselConfig}>
-              {organizationData.images.map((image, index) => (
-                <div className="carousel-item" key={index}>
-                  <img className="carousel-image" src={image} />
-                </div>
-              ))}
-            </Carousel>
-          </div>
-          <div className='organization-description'>
-            <h2>{organizationData.subTitle}</h2>  
-            <p>{organizationData.content}</p>
-          </div>
+          <Card className="case-card">
+            <div className="carousel-container">
+              <Carousel className="carousel-wrapper" {...carouselConfig}>
+                {organizationData.images.map((image, index) => (
+                  <div className="carousel-item" key={index}>
+                    <img className="carousel-image" src={image} />
+                  </div>
+                ))}
+              </Carousel>
+            </div>
+            <div className='organization-description'>
+              <h2>{organizationData.subTitle}</h2>  
+              <p>{organizationData.content}</p>
+            </div>
+          </Card>
         </div>
       </section>
     </Content>

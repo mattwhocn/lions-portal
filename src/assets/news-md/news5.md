@@ -1,5 +1,6 @@
 # 保安服务管理条例（国务院令第564号）
-![新闻图片](http://static.ztmagroup.com/data/images/1741443229662.png)
+
+![新闻图片](http://static.lioninternational.cn/lions-data/images/1752400410526.jpg)
  
 ## 第一章　总　　则
 ### 第一条

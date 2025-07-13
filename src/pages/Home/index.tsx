@@ -297,6 +297,9 @@ const Home: React.FC = () => {
                           </Tag>
                           <span className="news-date">{news?.date}</span>
                         </div>
+                        <div className='news-summary'>
+                          {news.summary}
+                        </div>
                       </div>
                     </div>
                   </Card>
