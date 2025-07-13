@@ -1,15 +1,28 @@
 import React from 'react';
-import { Layout, Typography, Row, Col, Card } from 'antd';
-import { 
-  EnvironmentOutlined, PhoneOutlined, MailOutlined, FieldTimeOutlined, 
-  BankOutlined, SafetyCertificateOutlined, GlobalOutlined, SafetyOutlined, 
-  CloudOutlined, RocketOutlined, ApartmentOutlined, BuildOutlined, 
-  SecurityScanOutlined, CompassOutlined, FireOutlined, HeartOutlined,
-  MedicineBoxOutlined, 
-  TeamOutlined
-} from '@ant-design/icons';
+import { Layout, Typography, Row, Col, Card, Space } from 'antd';
+import { EnvironmentOutlined, PhoneOutlined, MailOutlined, FieldTimeOutlined } from '@ant-design/icons';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import cooperative from '../../assets/images/contact/cooperative.png';
+import cooperative1 from '../../assets/images/contact/cooperative1.png';
+import cooperative2 from '../../assets/images/contact/cooperative2.png';
+import cooperative3 from '../../assets/images/contact/cooperative3.png';
+import cooperative4 from '../../assets/images/contact/cooperative4.png';
+import cooperative5 from '../../assets/images/contact/cooperative5.png';
+import cooperative6 from '../../assets/images/contact/cooperative6.png';
+import cooperative7 from '../../assets/images/contact/cooperative7.png';
+import cooperative8 from '../../assets/images/contact/cooperative8.png';
+import cooperative9 from '../../assets/images/contact/cooperative9.png';
+import cooperative10 from '../../assets/images/contact/cooperative10.png';
+import cooperative11 from '../../assets/images/contact/cooperative11.png';
+import cooperative12 from '../../assets/images/contact/cooperative12.png';
+import cooperative13 from '../../assets/images/contact/cooperative13.png';
+import cooperative14 from '../../assets/images/contact/cooperative14.png';
+import cooperative15 from '../../assets/images/contact/cooperative15.png';
+import cooperative16 from '../../assets/images/contact/cooperative16.png';
+import cooperative17 from '../../assets/images/contact/cooperative17.png';
+import cooperative18 from '../../assets/images/contact/cooperative18.png';
+import cooperative19 from '../../assets/images/contact/cooperative19.png';
+import cooperative20 from '../../assets/images/contact/cooperative20.png';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import './style.less';
 
@@ -26,6 +39,32 @@ export const contactInfo = {
   email: 'xxxxxxxx@163.com',
   workTime: '周一至周五 9:00-18:00'
 };
+
+const cooperativeData = {
+  title: '合作伙伴',
+  images: [
+    cooperative1,
+    cooperative2,
+    cooperative3,
+    cooperative4,
+    cooperative5,
+    cooperative6,
+    cooperative7,
+    cooperative8,
+    cooperative9,
+    cooperative10,
+    cooperative11,
+    cooperative12,
+    cooperative13,
+    cooperative14,
+    cooperative15,
+    cooperative16,
+    cooperative17,
+    cooperative18,
+    cooperative19,
+    cooperative20,
+  ]
+}
 
 const Contact: React.FC = () => {
   usePageTitle('联系我们');
@@ -75,7 +114,11 @@ const Contact: React.FC = () => {
         <div className="section-content">
           <h2>合作伙伴</h2>
           <div className="links-container">
-            <img src={cooperative} alt="合作伙伴" />
+            {cooperativeData.images.map((image, index) => (
+              <div key={index} className='links-item'>
+                <img src={image} alt="合作伙伴" />
+              </div>
+            ))}
           </div>
         </div>
       </section>
