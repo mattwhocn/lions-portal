@@ -30,6 +30,8 @@ interface BusinessCase {
 const carouselConfig = {
   centerMode: true,
   slidesToShow: 3,
+  speed: 2000,
+  autoplaySpeed: 2000,
   centerPadding: '60px',
   infinite: true,
   autoplay: true,
