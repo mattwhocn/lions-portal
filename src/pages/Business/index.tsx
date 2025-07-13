@@ -25,7 +25,7 @@ const Business = () => {
       id: 0,
       type: "核心产品",
       title: "业务介绍",
-      description: `业务领域，业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域，业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域，业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域，业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域`,
+      description: `北京雄狮国际保安服务有限公司（公安部一级资质）以“科技+精锐”双核驱动安全服务。提供智能门禁、AI监控巡逻、大型活动全流程安保及跨境北斗押运等高阶人防技防服务；独创“雄鹰安防云平台”提升响应效能40%，区域机动分队15分钟抵达应急现场。专注校园反欺凌、企业反间谍等专项保障，百万责任险兜底，7×24小时专属服务，践行“守护安全，使命必达”承诺。`,
       images: ['1'],
     },
     {
@@ -105,7 +105,7 @@ const Business = () => {
       </section>
 
       {/* 定制产品案例 */}
-      <section className="business-cases-section">
+      {/* <section className="business-cases-section">
         <div className="section-content">
           <div className="section-header">
             <Title level={2}>项目案例</Title>
@@ -118,8 +118,7 @@ const Business = () => {
                   <Row gutter={[12, 12]} className="case-image">
                     {item.images.slice(0, 2).map((image, index) => (
                       <Col xs={24} sm={24} lg={12} key={index} className="tech-overlay">
-                        {/* <img src={image} alt={item.title} /> */}
-                        <div style={{ width: '100%', height: '400px', background: 'blue', borderRadius: '8px' }} />
+                        <img src={image} alt={item.title} />
                       </Col>
                     ))}
                   </Row>
@@ -138,7 +137,7 @@ const Business = () => {
             ))}
           </Row>
         </div>
-      </section>
+      </section> */}
     </Content>
   )
 }

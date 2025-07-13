@@ -1,42 +1,39 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Layout, Tabs, Affix } from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Layout, Tabs, Affix, Menu } from 'antd';
+import { AppstoreOutlined } from '@ant-design/icons';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import news1Content from '../../assets/people-md/news1.md';
-import news2Content from '../../assets/people-md/news1.md';
-import news3Content from '../../assets/people-md/news1.md';
+import people1Content from '../../assets/people-md/people1.md';
+import people2Content from '../../assets/people-md/people2.md';
+import people3Content from '../../assets/people-md/people3.md';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import './style.less';
 
 const { Content } = Layout;
-const { TabPane } = Tabs;
 
-const TabConfig = [{
+const MenuItems = [{
   key: '党建工作',
-  title: '党建工作',
-  content: news1Content
+  label: '党建工作',
+  icon: <AppstoreOutlined />,
+  content: people1Content
 }, {
   key: '工会工作',
-  title: '工会工作',
-  content: news2Content
+  label: '工会工作',
+  icon: <AppstoreOutlined />,
+  content: people2Content
 }, {
   key: '团建工作',
-  title: '团建工作',
-  content: news3Content
+  label: '团建工作',
+  icon: <AppstoreOutlined />,
+  content: people3Content
 }]
 
 const People: React.FC = () => {
   usePageTitle('党群工作');
-  const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('党建工作');
+  const [selectedKey, setSelectedKey] = useState(['党建工作']);
   const [showAffix, setShowAffix] = useState(false);
   
-  const tabContent = useMemo(() => {
-    return TabConfig.find(tab => tab.key === activeTab)?.content;
-  }, [activeTab]);
-
   useEffect(() => {
     const handleScroll = () => {
       const bannerHeight = document.querySelector('.people-banner')?.getBoundingClientRect().height || 0;
@@ -47,6 +44,11 @@ const People: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const content = useMemo(() => {
+    const item = MenuItems.find((item) => item.key === selectedKey[0]);
+    return item?.content || '';
+  }, [selectedKey]);
 
   return (
     <Content className="people-page">
@@ -59,37 +61,39 @@ const People: React.FC = () => {
         <div className="tech-overlay" />
       </div>
 
-      {/* 只让 Tabs 导航栏吸顶 */}
-      <div className="tabs-wrapper">
-        <Tabs
-          tabPosition="left"
-          activeKey={activeTab}
-          onChange={setActiveTab}
-          className="people-tabs"
-        >
-          {TabConfig.map((item) => (<TabPane tab={item.title} key={item.key}>
-            <div className="people-container">
-              <div className="people-content markdown-content">
-                <ReactMarkdown 
-                  remarkPlugins={[remarkGfm]}
-                  components={{
-                    // 自定义渲染组件
-                    h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
-                    h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
-                    p: ({ node, ...props }) => <p className="md-p" {...props} />,
-                    ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
-                    ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
-                    li: ({ node, ...props }) => <li className="md-li" {...props} />,
-                    img: ({ node, ...props }) => <img className="md-img" {...props} />,
-                    blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
-                  }}
-                >
-                  {tabContent}
-                </ReactMarkdown> 
-              </div>
-            </div>
-          </TabPane>))}
-        </Tabs>
+      <div className="people-section-wrapper">
+        <div className='people-menus-wrapper'>
+          <Affix offsetTop={120}>
+            <Menu
+              defaultSelectedKeys={selectedKey}
+              className="people-menus"
+              items={MenuItems}
+              onClick={(item) => {
+                setSelectedKey([item.key]);
+              }}
+            />
+          </Affix>
+        </div>
+        <div className="people-container">
+          <div className="people-content markdown-content">
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]}
+              components={{
+                // 自定义渲染组件
+                h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
+                h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
+                p: ({ node, ...props }) => <p className="md-p" {...props} />,
+                ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
+                ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
+                li: ({ node, ...props }) => <li className="md-li" {...props} />,
+                img: ({ node, ...props }) => <img className="md-img" {...props} />,
+                blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
+              }}
+            >
+              {content}
+            </ReactMarkdown> 
+          </div>
+        </div>
       </div>
     </Content>
   );

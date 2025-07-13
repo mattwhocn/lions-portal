@@ -3,22 +3,28 @@ import { Layout, Row, Col, Typography, Card, Space } from 'antd';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import Elevator from '../../components/Elevator';
 import companyImage from '../../assets/images/about/company.png';
-import qualifications11 from '../../assets/images/about/qualifications/1 1.jpg';
-import qualifications12 from '../../assets/images/about/qualifications/2 1.jpg';
-import qualifications13 from '../../assets/images/about/qualifications/3 1.jpg';
-import qualifications14 from '../../assets/images/about/qualifications/4 1.jpg';
+import qualifications11 from '../../assets/images/about/qualifications/qualifications11.png';
+import qualifications12 from '../../assets/images/about/qualifications/qualifications12.png';
+import qualifications13 from '../../assets/images/about/qualifications/qualifications13.png';
+import qualifications14 from '../../assets/images/about/qualifications/qualifications14.png';
+import qualifications15 from '../../assets/images/about/qualifications/qualifications15.png';
+import qualifications16 from '../../assets/images/about/qualifications/qualifications16.png';
 
-import qualifications21 from '../../assets/images/about/qualifications/1 2.jpg';
-import qualifications22 from '../../assets/images/about/qualifications/2 2.jpg';
-import qualifications23 from '../../assets/images/about/qualifications/3 2.jpg';
-import qualifications24 from '../../assets/images/about/qualifications/4 2.jpg';
+import qualifications21 from '../../assets/images/about/qualifications/qualifications21.png';
+import qualifications22 from '../../assets/images/about/qualifications/qualifications22.jpg';
+import qualifications23 from '../../assets/images/about/qualifications/qualifications23.jpg';
+import qualifications24 from '../../assets/images/about/qualifications/qualifications24.jpg';
+import qualifications25 from '../../assets/images/about/qualifications/qualifications25.jpg';
+import qualifications26 from '../../assets/images/about/qualifications/qualifications26.jpg';
 
-import qualifications31 from '../../assets/images/about/qualifications/1 3.jpg';
-import qualifications32 from '../../assets/images/about/qualifications/2 3.jpg';
-import qualifications33 from '../../assets/images/about/qualifications/3 3.jpg';
-import qualifications34 from '../../assets/images/about/qualifications/4 3.jpg';
+import qualifications31 from '../../assets/images/about/qualifications/qualifications31.jpg';
+import qualifications32 from '../../assets/images/about/qualifications/qualifications32.jpg';
+import qualifications33 from '../../assets/images/about/qualifications/qualifications33.jpg';
+import qualifications34 from '../../assets/images/about/qualifications/qualifications34.jpg';
+import qualifications35 from '../../assets/images/about/qualifications/qualifications35.jpg';
+import qualifications36 from '../../assets/images/about/qualifications/qualifications36.jpg';
 
-import avatar from '../../assets/images/about/management/avatar.png';
+import avatar from '../../assets/images/about/management/avatar.jpg';
 import { useLocation } from 'react-router-dom';
 
 import { withErrorBoundary } from '@/components/ErrorBoundary';
@@ -29,55 +35,64 @@ const { Title, Paragraph } = Typography;
 // 公司简介数据
 export const companyProfile = {
   title: '公司简介',
-  content: `公司简介公司简介，公司简介，公司简介公司简介，公司简介，公司简介公司简介，公司简介，公司简介公司简介，公司简介，公司简介公司简介，公司简介，公司简介公司简介，公司简介`,
+  image: companyImage,
+  content: `北京雄狮国际保安服务有限公司成立于2020年，是经北京市公安局批准、工商注册的法人安保企业，注册资金6000万元。公司持有“AAA级资信等级”、“AAA级信誉企业”、“AAA级诚信经营示范单位”认证及三大体系认证。`,
   infos: [
     {
-      title: '公司简介：公司简介公司简介，公司简介',
-      detail: '公司简介：公司简介公司简介，公司简介'
+      title: '核心业务：',
+      detail: '涵盖安保、物业等业务，以高素质队伍为宗旨，凭技术经验服务，设督察部保质量。',
+      paragraph: `公司核心业务涵盖门卫、巡逻、守护、劳务服务、保安技术培训、停车管理、物业管理和保洁服务等。我们以打造高素质安保队伍为宗旨，依托技术手段新、科技含量高的专业特色和丰富的实战经验，为客户提供优质服务。为确保质量，公司还设有服务品质督察部。`
     },
     {
-      title: '公司简介：公司简介公司简介，公司简介',
-      detail: '公司简介：公司简介公司简介，公司简介'
+      title: '服务范围：',
+      detail: '立足北京辐射全国并拓海外，构建综合网络，服务多高端领域，获客户好评。',
+      paragraph: `服务范围立足北京，辐射全国，并逐步拓展海外，致力于构建人防、物防、技防相结合的综合服务网络。合作单位包括国家机关、党政部门、涉外机构、企事业单位、金融机构、高校、交通枢纽、景区、社区及海外派遣等高端领域，凭借良好信誉和服务质量，在客户满意度调查中连获好评。`,
     },
     {
-      title: '公司简介：公司简介公司简介，公司简介',
-      detail: '公司简介：公司简介公司简介，公司简介'
+      title: '团队管理：',
+      detail: '军警转业团队主导，建科学管理培训体系，2000 余员工军事化管理，求双赢与创新。',
+      paragraph: `公司管理团队主要由军警系统转业退役军人组成，建立了严谨科学的管理模式和完善的培训体系。现有员工2000余人，管理人员50余人，通过严格招聘（初中以上文化、政审合格）和培训，确保保安员素质。公司坚持军事化管理理念，以优质兵员为基础，追求服务与效益双赢，持续创新发展。`
     },
   ]
 };
 
+
 // 管理层数据
-const managementTeam = [
-  {
-    id: 1,
-    name: '杨秀武',
-    title: '党支部书记 / 总经理',
-    avatar: avatar,
-    description: `党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记，党支部书记`,
-    moreDetails: [
-      {
-        title: '创业历程',
-        content: '创业历程，创业历程，创业历程，创业历程，创业历程，创业历程，创业历程，创业历程',
-      },
-      {
-        title: '个人荣誉',
-        content: '个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉，个人荣誉',
-      },
-      {
-        title: '社会贡献',
-        content: '社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献，社会贡献',
-      }
-    ]
-  },
-];
+const managementProfile = {
+  name: '杨秀武',
+  title: '党支部书记、总经理',
+  avatar: avatar,
+  description: `杨秀武，男，1967年出生，中共党员。现任北京雄狮国际保安服务有限公司党支部书记、总经理。大学文化，吉林农安人，北京市二级保安师。`,
+  descriptions: [
+    `杨秀武，男，1967年出生，中共党员。现任北京雄狮国际保安服务有限公司党支部书记、总经理。大学文化，吉林农安人，北京市二级保安师。`,
+    `曾就读于合肥解放军电子工程学院，石家庄陆军学院，石家庄陆军参谋学院。`,
+    `从军14年，曾担任过营连主官，所带单位被评为“先进连队”、“基层建设先进单位”，曾被评为“优秀营连主官”、“优秀共产党员”、“优秀基层干部”，多次受到嘉奖。`,
+    `从警15年，担任过公安派出所、内保处主要领导等职务，圆满完成了多项重大安保任务，先后两次被评为北京市人民满意政法干警“十佳”标兵。“全国优秀人民警察”、“全国公安系统二级英雄模范”、“全国优秀共产党员”等荣誉称号。荣获个人二等功2次、个人三等功4次，2008年第二十九届北京奥运会火炬手。`,
+    `多次受到党和国家领导人接见，具有丰富团队管理领导和保安管理经验。`
+  ],
+  moreDetails: [
+    {
+      title: '创业历程',
+      content: '',
+    },
+    {
+      title: '个人荣誉',
+      content: '',
+    },
+    {
+      title: '社会贡献',
+      content: '',
+    }
+  ]
+};
 
 // 资质与荣誉数据
 const qualifications = {
   title: '资质与荣誉',
   items: [
-    qualifications11, qualifications12, qualifications13, qualifications14,
-    qualifications21, qualifications22, qualifications23, qualifications24,
-    qualifications31, qualifications32, qualifications33, qualifications34
+    qualifications11, qualifications12, qualifications13, qualifications14, qualifications15, qualifications16,
+    qualifications21, qualifications22, qualifications23, qualifications24, qualifications25, qualifications26,
+    qualifications31, qualifications32, qualifications33, qualifications34, qualifications35, qualifications36,
   ],
 };
 
@@ -211,9 +226,6 @@ const About: React.FC = () => {
     }, 100);
   };
 
-  // 判断是否为单个管理层成员
-  const isSingleManager = managementTeam.length === 1;
-
   return (
     <Content className="about-page">
       <Elevator 
@@ -233,7 +245,7 @@ const About: React.FC = () => {
             <Col xs={24} lg={12}>
               <div className="profile-image">
                 <div className="tech-overlay">
-                  <img src={companyImage} alt="companyImage" />
+                  <img src={companyProfile.image} alt="companyImage" />
                 </div>
               </div>
             </Col>
@@ -241,75 +253,59 @@ const About: React.FC = () => {
               <Paragraph className="profile-text">
                 {companyProfile.content}
               </Paragraph>
-              <div className="intro-highlights">
-                {companyProfile.infos?.map((item, index) => (
-                   <div key={index} className="highlight-item">
-                    <span className="highlight-dot" />
-                    {item.title}
-                  </div>
-                ))}
-              </div>
             </Col>
+          </Row>
+          <Row gutter={[12, 12]} align="middle" style={{ marginTop: '24px' }}>
+            {companyProfile.infos?.map((item, index) => (
+              <Col xs={24} lg={8}>
+                <Card bordered={false} title={<div style={{ textAlign: 'center' }}>{item.title}</div>}>
+                  <Paragraph key={index} className="profile-text">
+                    {item.paragraph}
+                  </Paragraph>
+                </Card>
+              </Col>
+            ))}
           </Row>
         </div>
       </section>
 
-      {/* 领导简介 */}
+      {/* 管理层介绍 */}
       <section className="management-team">
         <div className='section-hash-mark' id="management" />
         <div className="section-content" ref={managementRef}>
-          <div className="section-header">
-            <Title level={2}>领导简介</Title>
-          </div>
-          {isSingleManager ? (
-            // 单个管理层成员时的布局
-            <Row gutter={[48, 48]} align="middle">
-              <Col xs={24} lg={8}>
-                <Card className="manager-card single">
-                  <div className="avatar-wrapper">
-                    <img src={managementTeam[0].avatar} alt={managementTeam[0].name} />
-                  </div>
-                  <div className="info">
-                    <h3>{managementTeam[0].name}</h3>
-                    <p>{managementTeam[0].title}</p>
-                  </div>
-                </Card>
-              </Col>
-              <Col xs={24} lg={16}>
-                <div className="manager-description">
-                  <Paragraph>{managementTeam[0].description}</Paragraph>
+          <Row gutter={[48, 12]} align="top">
+            <Col xs={24} lg={12}>
+              <div className="manager-description">
+                <h3>领导简介</h3>
+                {managementProfile.descriptions?.map((item, index) => (
+                  <Paragraph key={index}>{item}</Paragraph>
+                ))}
+              </div>
+            </Col>
+            <Col xs={24} lg={12}>
+              <Card className="manager-card single">
+                <div className="avatar-wrapper">
+                  <img src={managementProfile.avatar} alt={managementProfile.name} />
                 </div>
-                <div className="manager-more-details">
-                  {managementTeam[0].moreDetails.map((detail, index) => (
-                    <div key={index} className="detail-item">
-                      <h4>{detail.title}</h4>
-                      <p>{detail.content}</p>
-                    </div>
-                  ))}
-                </div>
-              </Col>
-            </Row>
-          ) : (
-            // 多个管理层成员时的布局
-            <Row gutter={[24, 48]}>
-              {managementTeam.map(manager => (
-                <Col xs={24} sm={12} lg={8} key={manager.id}>
-                  <Card className="manager-card">
-                    <div className="avatar-wrapper">
-                      <img src={manager.avatar} alt={manager.name} />
-                    </div>
-                    <div className="info">
-                      <h3>{manager.name}</h3>
-                      <p>{manager.title}</p>
-                    </div>
-                    <div className="description">
-                      <Paragraph>{manager.description}</Paragraph>
-                    </div>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-          )}
+                <Space className="manager-info" split="/">
+                  <h3>{managementProfile.name}</h3>
+                  <p>{managementProfile.title}</p>
+                </Space>
+              </Card>
+            </Col>
+          </Row>
+          {/* <Row gutter={[48, 12]} align="middle">
+            <Col xs={24} lg={24}>
+              <div className="manager-more-details">
+                {managementProfile.moreDetails.map((detail, index) => (
+                  <div key={index} className="detail-item">
+                    <h4>{detail.title}</h4>
+                    <p>{detail.content}</p>
+                  </div>
+                ))}
+              </div>
+            </Col>
+          </Row> */}
         </div>
       </section>
 
@@ -322,13 +318,13 @@ const About: React.FC = () => {
           </div>
           <Row gutter={[24, 24]}>
             {qualifications.items.map((item, index) => (
-              <Col xs={24} sm={12} md={6} key={index}>
+              <Col xs={24} sm={12} md={4} key={index}>
                 <div 
                   className="qualification-item"
                   style={{ background: '#ffffff' }}
                 >
                   <div className="tech-overlay">
-                    {/* <img src={item} alt="资质与荣誉" /> */}
+                    <img src={item} alt="资质与荣誉" />
                   </div>
                 </div>
               </Col>

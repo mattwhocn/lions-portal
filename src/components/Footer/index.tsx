@@ -19,14 +19,14 @@ const Footer: React.FC = () => {
     <Layout.Footer className="app-footer">
       <div className="footer-content">
         <Row gutter={[48, 24]}>
-          <Col xs={24} md={8}>
+          <Col xs={24} sm={12} md={8}>
             <div className="footer-section">
               <Link to="/" className="logo">
                 <div className="logo-mark">
-                  <img src={logo} alt="雄狮国际保安服务有限公司" />  
+                  <img src={logo} alt={contactInfo.name} />  
                 </div>
                 <div className="logo-name">
-                  <img src={logoNameWhite} alt="雄狮国际保安服务有限公司" />  
+                  <img src={logoNameWhite} alt={contactInfo.name} />  
                 </div>
               </Link>
             </div>
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             </div>
           </Col>
 
-          <Col xs={24} sm={12} md={8}>
+          <Col xs={24} sm={12} md={11}>
             <div className="footer-section">
               <h3>联系我们</h3>
               <p>
@@ -45,12 +45,16 @@ const Footer: React.FC = () => {
                 <span className='contact-content'>{contactInfo.phone}</span>
               </p>
               <p>
-                <span className='contact-title'>电子邮箱：</span>
-                <span className='contact-content'>{contactInfo.email}</span>
+                <span className='contact-title'>邮政编码：</span>
+                <span className='contact-content'>{contactInfo.postcode}</span>
               </p>
               <p>
-                <span className='contact-title'>集团地址：</span>
+                <span className='contact-title'>注册地址：</span>
                 <span className='contact-content'>{contactInfo.address}</span>
+              </p>
+              <p>
+                <span className='contact-title'>办公地址：</span>
+                <span className='contact-content'>{contactInfo.address2}</span>
               </p>
               <p className='contact-address'>
                 <a href={baiduMapUrl} target="_blank" rel="noopener noreferrer">
@@ -61,7 +65,7 @@ const Footer: React.FC = () => {
             </div>
           </Col>
 
-          <Col xs={24} sm={12} md={8}>
+          <Col xs={24} sm={12} md={5}>
             <div className="footer-section">
               <h3>关注我们</h3>
               <Row gutter={24}>

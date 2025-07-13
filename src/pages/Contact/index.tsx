@@ -18,9 +18,11 @@ const { Title } = Typography;
 
 // 联系信息数据
 export const contactInfo = {
-  address: '北京市大兴区xxxxxxxxxxxx',
-  address2: '北京市大兴区xxxxxxxxxxxx',
-  phone: '010-xxxxxxxx',
+  name: '北京雄狮国际保安服务有限公司',
+  address: '北京市大兴区庞各庄镇庞新路5号1幢6层',
+  address2: '北京市大兴区庞各庄镇庞新路5号1幢2层206室',
+  phone: '010-89287732',
+  postcode: '102601',
   email: 'xxxxxxxx@163.com',
   workTime: '周一至周五 9:00-18:00'
 };
@@ -46,7 +48,7 @@ const Contact: React.FC = () => {
           <div className="info-cards">
             <Card className="info-card">
               <EnvironmentOutlined />
-              <h3>集团地址</h3>
+              <h3>注册地址</h3>
               <p>{contactInfo.address}</p>
             </Card>
             <Card className="info-card">
@@ -56,8 +58,8 @@ const Contact: React.FC = () => {
             </Card>
             <Card className="info-card">
               <MailOutlined />
-              <h3>电子邮箱</h3>
-              <p>{contactInfo.email}</p>
+              <h3>邮政编码</h3>
+              <p>{contactInfo.postcode}</p>
             </Card>
             <Card className="info-card">
               <FieldTimeOutlined />
