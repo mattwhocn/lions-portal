@@ -5,16 +5,18 @@ import { RightOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import { getNewsTagColor } from '../../utils/newsHelpers';
-import banner0 from '../../assets/images/banner/banner0.png';
-import banner1 from '../../assets/images/banner/banner1.png';
+import banner1 from '../../assets/images/banner/banner1.jpg';
+import banner2 from '../../assets/images/banner/banner2.jpg';
+import banner3 from '../../assets/images/banner/banner3.jpg';
+import banner4 from '../../assets/images/banner/banner4.jpg';
 import companyImage from '../../assets/images/about/company.png';
-import partyBuilding from '../../assets/images/people/party-building.png';
 import { companyProfile } from '../About';
 import { newsContent, NewsItem } from '../News/helper';
 import { formatExcelDate } from '../News/Detail';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import { API_DOMAIN } from '@/constants';
 import './style.less';
+import { organizationData } from '../Organization';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -24,21 +26,24 @@ const defaultBannerData = [
   {
     title: '',
     description: '',
-    image: banner0,
+    image: banner1,
   },
   {
     title: '',
     description: '',
-    image: banner1,
+    image: banner2,
+  },
+  {
+    title: '',
+    description: '',
+    image: banner3,
+  },
+  {
+    title: '',
+    description: '',
+    image: banner4,
   }
 ];
-
-const partyWorkingProfile = {
-  title: '“两新” 组织党建工作：内涵、目标与价值',
-  image: partyBuilding,
-  images: [],
-  content: '“两新”组织是新经济组织和新社会组织的简称。新经济组织包括私营企业、外商投资企业等各类非国有集体独资的经济组织，新社会组织是社会团体和民办非企业单位的统称。 加强两新组织党建工作，旨在扩大党的工作覆盖面，创新党的活动方式，落实“党的组织、党的工作”在两新组织中全覆盖的任务，促进两新组织健康发展，全面提升两新组织党建工作水平，发挥两新组织在经济社会发展中的积极作用。',
-}
 
 const Home: React.FC = () => {
   usePageTitle('首页');
@@ -197,12 +202,12 @@ const Home: React.FC = () => {
           </div>
           <div className="global-map">
             <div className="map-overlay">
-              <img src={partyWorkingProfile.image} alt="globalLayout" />
+              <img src={organizationData.image} alt="globalLayout" />
             </div>
           </div>
           <div className='global-description'>
-            <h2>{partyWorkingProfile.title}</h2>  
-            <p>{partyWorkingProfile.content}</p>
+            <h2>{organizationData.subTitle}</h2>  
+            <p>{organizationData.content}</p>
           </div>
         </div>
       </section>
@@ -261,8 +266,7 @@ const Home: React.FC = () => {
               >
                 <div className="news-image">
                   <div className="image-overlay">
-                    {/* <img src={displayedNews?.cover} alt={displayedNews?.title} /> */}
-                    <div style={{ width: '100%', height: '100%', background: 'blue' }} />
+                    <img src={displayedNews?.cover} alt={displayedNews?.title} />
                   </div>  
                 </div>
                 <div className="news-content">

@@ -1,6 +1,15 @@
 import { withErrorBoundary } from "@/components/ErrorBoundary"
 import { usePageTitle } from "@/hooks/usePageTitle";
-import { Layout, Typography, Row, Col, Card } from "antd";
+import { Layout, Typography, Row, Col, Card, Carousel } from "antd";
+import business1 from '@/assets/images/business/保安培训.png';
+import business2 from '@/assets/images/business/大型护卫.jpg';
+import business3 from '@/assets/images/business/公安辅警.png';
+import business4 from '@/assets/images/business/护卫.png';
+import business5 from '@/assets/images/business/门卫服务.png';
+import business6 from '@/assets/images/business/停车场服务.png';
+import business7 from '@/assets/images/business/消防中控.png';
+import business8 from '@/assets/images/business/巡逻服务.png';
+
 import { useMemo } from "react";
 
 import './style.less';
@@ -13,9 +22,19 @@ interface BusinessCase {
   type: string;
   title: string;
   description: string;
+  image: string;
   images: string[];
   extra?: string[];
 }
+
+const carouselConfig = {
+  centerMode: true,
+  slidesToShow: 3,
+  centerPadding: '60px',
+  infinite: true,
+  autoplay: true,
+  arrows: true,
+};
 
 const Business = () => {
   usePageTitle('业务领域');
@@ -26,13 +45,15 @@ const Business = () => {
       type: "核心产品",
       title: "业务介绍",
       description: `北京雄狮国际保安服务有限公司（公安部一级资质）以“科技+精锐”双核驱动安全服务。提供智能门禁、AI监控巡逻、大型活动全流程安保及跨境北斗押运等高阶人防技防服务；独创“雄鹰安防云平台”提升响应效能40%，区域机动分队15分钟抵达应急现场。专注校园反欺凌、企业反间谍等专项保障，百万责任险兜底，7×24小时专属服务，践行“守护安全，使命必达”承诺。`,
-      images: ['1'],
+      image: business1,
+      images: [business1, business2, business3, business4, business5, business6, business7, business8],
     },
     {
       id: 1,
       type: "定制产品",
       title: "业务领域Case1",
       description: `业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域。`,
+      image: '1',
       images: ['1', '2'],
     },
     {
@@ -40,6 +61,7 @@ const Business = () => {
       type: "定制产品",
       title: "业务领域Case1",
       description: `业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域，业务领域，业务领域，业务领域，业务领域，业务领域，业务领域，业务领域`,
+      image: '1',
       images: ['1', '2'],
     },
   ]
@@ -81,8 +103,7 @@ const Business = () => {
                     <Col xs={24} lg={12}>
                       <div className="product-image">
                         <div className="tech-overlay">
-                          {/* <img src={product.images[0]} alt={product.title} /> */}
-                          <div style={{ width: '100%', height: '400px', background: 'blue' }} />
+                          <img src={product.images[0]} alt={product.title} />
                         </div>
                       </div>
                     </Col>
@@ -97,6 +118,15 @@ const Business = () => {
                       </div>
                     </Col>
                   </Row>
+                  <div className="carousel-container">
+                    <Carousel className="carousel-wrapper" {...carouselConfig}>
+                      {product.images.map((item, index) => (
+                        <div className="carousel-item" key={index}>
+                          <img className="carousel-image" src={item} />
+                        </div>
+                      ))}
+                    </Carousel> 
+                  </div>
                 </Card>
               </Col>
             ))}

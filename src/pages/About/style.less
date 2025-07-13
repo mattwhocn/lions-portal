@@ -155,6 +155,31 @@
   
   // 资质与荣誉
   .section-qualifications {
+    .carousel-container {
+      margin-bottom: 24px;
+
+      .carousel-wrapper {
+        width: 100%;
+        height: 608px;
+        overflow: hidden;
+
+        .carousel-item {
+          height: 100%;
+          width: 180px;
+          position: relative;
+          overflow: hidden;
+          padding: 12px;
+
+          .carousel-image {
+            width: 180px;
+            border-radius: 12px;
+            height: 280px;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
     .qualification-item {
       height: 280px;
       border-radius: 8px;
@@ -232,7 +257,7 @@
         
         img {
           width: 100%;
-          height: 260px;
+          height: 360px;
           object-fit: cover;
         }
       }
@@ -249,15 +274,16 @@
       }
 
       .ant-typography {
-        font-size: 18px;
-        line-height: 1.9;
+        font-size: 17px;
+        line-height: 1.6;
         color: #262626;
-        // text-indent: 2em;
+        text-indent: 2em;
+        margin-bottom: 8px;
       }
     }
 
     .manager-more-details {
-      margin-top: 24px;
+      margin-top: 12px;
 
       .detail-item {
         h4 {

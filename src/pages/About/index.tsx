@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col, Typography, Card, Space } from 'antd';
+import { Layout, Row, Col, Typography, Card, Space, Carousel } from 'antd';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import Elevator from '../../components/Elevator';
 import companyImage from '../../assets/images/about/company.png';
@@ -101,6 +101,15 @@ const elevatorItems = [
   { key: 'management', title: '领导简介' },
   { key: 'qualifications', title: '资质与荣誉' }
 ];
+
+const carouselConfig = {
+  centerMode: true,
+  rows: 2,
+  slidesToShow: 3,
+  centerPadding: '60px',
+  infinite: true,
+  autoplay: true,
+};
 
 const About: React.FC = () => {
   usePageTitle('关于我们');
@@ -315,6 +324,15 @@ const About: React.FC = () => {
         <div className="section-content" ref={qualificationsRef}>
           <div className="section-header">
             <Title level={2}>{qualifications.title}</Title>
+          </div>
+          <div className="carousel-container">
+            <Carousel className="carousel-wrapper" {...carouselConfig}>
+              {qualifications.items.map((image, index) => (
+                <div className="carousel-item" key={index}>
+                  <img className="carousel-image" src={image} />
+                </div>
+              ))}
+            </Carousel>
           </div>
           <Row gutter={[24, 24]}>
             {qualifications.items.map((item, index) => (
