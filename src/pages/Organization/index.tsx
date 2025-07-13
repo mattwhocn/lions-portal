@@ -28,6 +28,9 @@ const Organization = () => {
           <div className="section-header">
             <Title level={2}>两新组织</Title>
           </div>
+          <div>
+            
+          </div>
         </div>
       </section>
     </Content>
