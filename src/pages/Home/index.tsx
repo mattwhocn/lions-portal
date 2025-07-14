@@ -199,6 +199,9 @@ const Home: React.FC = () => {
         <div className="section-content" ref={partyWorkingRef}>
           <div className="section-header">
             <Title level={2}>两新组织</Title>
+            <Link to="/organization" className="view-more">
+              查看更多 <RightOutlined />
+            </Link>
           </div>
           <div className="global-map">
             <div className="map-overlay">
@@ -217,6 +220,9 @@ const Home: React.FC = () => {
         <div className="intro-content" ref={companyIntroRef}>
           <div className="section-header">
             <Title level={2}>公司简介</Title>
+            <Link to="/about" className="view-more">
+              查看更多 <RightOutlined />
+            </Link>
           </div>
           <Row gutter={[48, 48]} align="middle">
             <Col xs={24} lg={12}>
@@ -232,11 +238,11 @@ const Home: React.FC = () => {
                   </div>
                 ))}
               </div>
-              <Link to="/about">
+              {/* <Link to="/about">
                 <Button type="primary" size="large">
                   了解更多 <RightOutlined />
                 </Button>
-              </Link>
+              </Link> */}
             </Col>
             <Col xs={24} lg={12}>
               <div className="intro-image">
