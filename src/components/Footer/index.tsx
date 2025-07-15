@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               </Link>
             </div>
             <div className="footer-bottom">
-              <Space size={20} className="footer-nav">
+              <Space size={12} className="footer-nav">
                 {menuItems?.map((item: any) => { return item?.label || '' })}
               </Space>
             </div>

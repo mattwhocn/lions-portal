@@ -12,7 +12,6 @@ import News from './pages/News';
 import Contact from './pages/Contact';
 import NewsDetail from './pages/News/Detail';
 import People from './pages/People';
-import Organization from './pages/Organization';
 import ScrollToTop from './components/ScrollToTop';
 import './styles/app.less';
 
@@ -30,7 +29,6 @@ export const App: React.FC = () => {
             <Route path="/about" element={<About />} />
             <Route path="/business" element={<Business />} />
             <Route path="/people" element={<People />} />
-            <Route path="/organization" element={<Organization />} />
             <Route path="/news" element={<News />} />
             <Route path="/news/:id" element={<NewsDetail />} />
             <Route path="/contact" element={<Contact />} />

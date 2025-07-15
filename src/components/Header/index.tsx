@@ -38,10 +38,6 @@ export const menuItems: MenuProps['items'] = [
     label: <Link to="/people">党群工作</Link>,
   },
   {
-    key: '/organization',
-    label: <Link to="/organization">两新组织</Link>,
-  },
-  {
     key: '/business',
     label: <Link to="/business">业务领域</Link>,
   },

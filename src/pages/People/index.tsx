@@ -1,37 +1,67 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Layout, Tabs, Affix, Menu } from 'antd';
+import { Layout, Card, Affix, Menu } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import people1Content from '../../assets/people-md/people1.md';
 import people2Content from '../../assets/people-md/people2.md';
 import people3Content from '../../assets/people-md/people3.md';
 import { usePageTitle } from '../../hooks/usePageTitle';
+import Organization from './Components/Organization';
+import Party from './Components/Party';
 import './style.less';
 
 const { Content } = Layout;
 
-const MenuItems = [{
-  key: '党建工作',
-  label: '党建工作',
-  icon: <AppstoreOutlined />,
-  content: people1Content
-}, {
-  key: '工会工作',
-  label: '工会工作',
-  icon: <AppstoreOutlined />,
-  content: people2Content
-}, {
-  key: '团建工作',
-  label: '团建工作',
-  icon: <AppstoreOutlined />,
-  content: people3Content
-}]
+
+type MenuItem = {
+  key: string;
+  label: string;
+  icon: React.ReactNode;
+  type: 'markdown';
+  content: string;
+} | {
+  key: string;
+  label: string;
+  icon: React.ReactNode;
+  type: 'component';
+  content: React.ReactNode;
+};
+
+const MenuItems: MenuItem[] = [
+  {
+    key: '两新组织',
+    label: '两新组织',
+    icon: <AppstoreOutlined />,
+    type: 'component',
+    content: <Organization />,
+  },
+  {
+    key: '党建工作',
+    label: '党建工作',
+    icon: <AppstoreOutlined />,
+    type: 'component',
+    content: <Party />,
+  },
+  {
+    key: '工会工作',
+    label: '工会工作',
+    icon: <AppstoreOutlined />,
+    type: 'markdown',
+    content: people2Content
+  },
+  {
+    key: '团建工作',
+    label: '团建工作',
+    icon: <AppstoreOutlined />,
+    type: 'markdown',
+    content: people3Content
+  }
+]
 
 const People: React.FC = () => {
   usePageTitle('党群工作');
-  const [selectedKey, setSelectedKey] = useState(['党建工作']);
+  const [selectedKey, setSelectedKey] = useState(['两新组织']);
   const [showAffix, setShowAffix] = useState(false);
   
   useEffect(() => {
@@ -45,9 +75,8 @@ const People: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const content = useMemo(() => {
-    const item = MenuItems.find((item) => item.key === selectedKey[0]);
-    return item?.content || '';
+  const selectedItem = useMemo(() => {
+    return MenuItems.find((item) => item.key === selectedKey[0]);
   }, [selectedKey]);
 
   return (
@@ -67,33 +96,44 @@ const People: React.FC = () => {
             <Menu
               defaultSelectedKeys={selectedKey}
               className="people-menus"
-              items={MenuItems}
+              items={MenuItems.map(item => ({
+                key: item.key,
+                label: item.label,
+                icon: item.icon,
+              }))}
               onClick={(item) => {
                 setSelectedKey([item.key]);
               }}
             />
           </Affix>
         </div>
-        <div className="people-container">
-          <div className="people-content markdown-content">
-            <ReactMarkdown 
-              remarkPlugins={[remarkGfm]}
-              components={{
-                // 自定义渲染组件
-                h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
-                h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
-                p: ({ node, ...props }) => <p className="md-p" {...props} />,
-                ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
-                ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
-                li: ({ node, ...props }) => <li className="md-li" {...props} />,
-                img: ({ node, ...props }) => <img className="md-img" {...props} />,
-                blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
-              }}
-            >
-              {content}
-            </ReactMarkdown> 
-          </div>
-        </div>
+        <Card className="people-container">
+          {selectedItem?.type === 'component' && (
+            <div className="people-content component-content">
+              {selectedItem.content}
+            </div>
+          )}
+          {selectedItem?.type === 'markdown' && (
+            <div className="people-content markdown-content">
+              <ReactMarkdown 
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  // 自定义渲染组件
+                  h1: ({ node, ...props }) => <h1 className="md-h1" {...props} />,
+                  h2: ({ node, ...props }) => <h2 className="md-h2" {...props} />,
+                  p: ({ node, ...props }) => <p className="md-p" {...props} />,
+                  ul: ({ node, ...props }) => <ul className="md-ul" {...props} />,
+                  ol: ({ node, ...props }) => <ol className="md-ol" {...props} />,
+                  li: ({ node, ...props }) => <li className="md-li" {...props} />,
+                  img: ({ node, ...props }) => <img className="md-img" {...props} />,
+                  blockquote: ({ node, ...props }) => <blockquote className="md-blockquote" {...props} />,
+                }}
+              >
+                {selectedItem.content}
+              </ReactMarkdown> 
+            </div>
+          )}
+        </Card>
       </div>
     </Content>
   );

@@ -15,8 +15,8 @@ import { newsContent, NewsItem } from '../News/helper';
 import { formatExcelDate } from '../News/Detail';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import { API_DOMAIN } from '@/constants';
+import Organization, { organizationData } from '../People/Components/Organization';
 import './style.less';
-import { organizationData } from '../Organization';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -199,11 +199,12 @@ const Home: React.FC = () => {
         <div className="section-content" ref={partyWorkingRef}>
           <div className="section-header">
             <Title level={2}>两新组织</Title>
-            <Link to="/organization" className="view-more">
+            <Link to="/people" className="view-more">
               查看更多 <RightOutlined />
             </Link>
           </div>
-          <div className="global-map">
+          <Organization showTitle={false} />
+          {/* <div className="global-map">
             <div className="map-overlay">
               <img src={organizationData.image} alt="globalLayout" />
             </div>
@@ -211,7 +212,7 @@ const Home: React.FC = () => {
           <div className='global-description'>
             <h2>{organizationData.subTitle}</h2>  
             <p>{organizationData.content}</p>
-          </div>
+          </div> */}
         </div>
       </section>
 
