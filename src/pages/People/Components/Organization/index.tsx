@@ -1,15 +1,14 @@
 import { withErrorBoundary } from "@/components/ErrorBoundary"
-import { usePageTitle } from "@/hooks/usePageTitle";
-import { Layout, Typography, Carousel, Card } from "antd";
+import { Layout, Carousel, Card } from "antd";
 import organization1 from '../../../../assets/images/people/organization1.jpg';
 import organization2 from '../../../../assets/images/people/organization2.jpg';
 import organization3 from '../../../../assets/images/people/organization3.jpg';
 import organization4 from '../../../../assets/images/people/organization4.jpg';
 
 import './index.less';
+import { useMemo } from "react";
 
 const { Content } = Layout;
-const { Title, Paragraph } = Typography;
 
 export const organizationData = {
   title: '两新组织',
@@ -24,29 +23,34 @@ export const organizationData = {
   ]
 }
 
-const carouselConfig = {
-  centerMode: true,
-  slidesToShow: 2,
-  speed: 2000,
-  autoplaySpeed: 2000,
-  centerPadding: '60px',
-  infinite: true,
-  autoplay: true,
-  arrows: true,
-};
 
-const Organization = (props: { showTitle: boolean }) => {
-  const { showTitle = true } = props;
+
+const Organization = (props: { bigMode: boolean }) => {
+  const { bigMode = false } = props;
+
+  const carouselConfig = useMemo(() => {
+    return {
+      centerMode: true,
+      slidesToShow: bigMode ? 1 : 2,
+      speed: 2000,
+      easing: 'ease',
+      autoplaySpeed: 2000,
+      centerPadding: '60px',
+      infinite: true,
+      autoplay: true,
+      arrows: true,
+    };
+  }, [bigMode]);
 
   return (
     <Content className="organization-page">
       <div className="section-content">
-        {showTitle && (
+        {!bigMode && (
           <div className='organization-title'>
             <h2>{organizationData.title}</h2>
           </div>
         )}
-        <div className="carousel-container">
+        <div className={`carousel-container ${bigMode ? 'carousel-container-big' : ''}`}>
           <Carousel className="carousel-wrapper" {...carouselConfig}>
             {organizationData.images.map((image, index) => (
               <div className="carousel-item" key={index}>

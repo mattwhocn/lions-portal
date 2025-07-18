@@ -203,7 +203,7 @@ const Home: React.FC = () => {
               查看更多 <RightOutlined />
             </Link>
           </div>
-          <Organization showTitle={false} />
+          <Organization bigMode />
           {/* <div className="global-map">
             <div className="map-overlay">
               <img src={organizationData.image} alt="globalLayout" />
