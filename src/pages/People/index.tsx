@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Layout, Card, Affix, Menu } from 'antd';
+import { Layout, Card, Affix, Menu, Tabs } from 'antd';
 import { AppstoreOutlined } from '@ant-design/icons';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import ReactMarkdown from 'react-markdown';
@@ -10,9 +10,10 @@ import { usePageTitle } from '../../hooks/usePageTitle';
 import Organization from './Components/Organization';
 import Party from './Components/Party';
 import './style.less';
+import { useIsMobile } from '@/hooks/useIsMobile';
 
 const { Content } = Layout;
-
+const { TabPane } = Tabs;
 
 type MenuItem = {
   key: string;
@@ -61,7 +62,9 @@ const MenuItems: MenuItem[] = [
 
 const People: React.FC = () => {
   usePageTitle('党群工作');
+  const isMobile = useIsMobile();
   const [selectedKey, setSelectedKey] = useState(['两新组织']);
+  const [activeTab, setActiveTab] = useState('两新组织');
   const [showAffix, setShowAffix] = useState(false);
   
   useEffect(() => {
@@ -76,11 +79,15 @@ const People: React.FC = () => {
   }, []);
 
   const selectedItem = useMemo(() => {
-    return MenuItems.find((item) => item.key === selectedKey[0]);
-  }, [selectedKey]);
+    if (isMobile) {
+      return MenuItems.find((item) => item.key === activeTab);
+    } else {
+      return MenuItems.find((item) => item.key === selectedKey[0]);
+    }
+  }, [selectedKey, activeTab]);
 
   return (
-    <Content className="people-page">
+    <Content className={`people-page ${isMobile ? 'people-page-mobile' : ''}`}>
       {/* 顶部配图 */}
       <div className="page-banner">
         <div className="banner-content">
@@ -91,22 +98,42 @@ const People: React.FC = () => {
       </div>
 
       <div className="people-section-wrapper">
-        <div className='people-menus-wrapper'>
-          <Affix offsetTop={120}>
-            <Menu
-              defaultSelectedKeys={selectedKey}
-              className="people-menus"
-              items={MenuItems.map(item => ({
-                key: item.key,
-                label: item.label,
-                icon: item.icon,
-              }))}
-              onClick={(item) => {
-                setSelectedKey([item.key]);
-              }}
-            />
-          </Affix>
-        </div>
+        {/* 只让 Tabs 导航栏吸顶 */}
+        {isMobile ? (
+          <div className="tabs-wrapper">
+            <Affix offsetTop={64}>
+              <div className={`tabs-container ${showAffix ? 'affix-active' : ''}`}>
+                <Tabs
+                  activeKey={activeTab}
+                  onChange={setActiveTab}
+                  className="news-tabs"
+                >
+                  {MenuItems.map(item => (
+                    <TabPane tab={item.label} key={item.key} />
+                  ))}
+                </Tabs>
+              </div>
+            </Affix>
+          </div>
+        ) : (
+          <div className='people-menus-wrapper'>
+            <Affix offsetTop={120}>
+              <Menu
+                defaultSelectedKeys={selectedKey}
+                className="people-menus"
+                items={MenuItems.map(item => ({
+                  key: item.key,
+                  label: item.label,
+                  icon: item.icon,
+                }))}
+                onClick={(item) => {
+                  setSelectedKey([item.key]);
+                }}
+              />
+            </Affix>
+          </div>
+        )}
+
         <Card className="people-container">
           {selectedItem?.type === 'component' && (
             <div className="people-content component-content">

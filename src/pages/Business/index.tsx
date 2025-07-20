@@ -15,6 +15,7 @@ import { useEffect, useMemo, useState } from "react";
 import './style.less';
 import { API_DOMAIN } from "@/constants";
 import axios from "axios";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
@@ -27,17 +28,6 @@ interface BusinessCase {
   image: string;
   images: string[];
 }
-
-const carouselConfig = {
-  centerMode: true,
-  slidesToShow: 3,
-  speed: 2000,
-  autoplaySpeed: 2000,
-  centerPadding: '60px',
-  infinite: true,
-  autoplay: true,
-  arrows: true,
-};
 
 const defaultBusinessCases: BusinessCase[] = [
     {
@@ -60,6 +50,7 @@ const defaultBusinessCases: BusinessCase[] = [
 
 const Business = () => {
   usePageTitle('业务领域');
+  const isMobile = useIsMobile();
 
   const [businessCases, setBusinessCases] = useState<BusinessCase[]>(defaultBusinessCases);
   
@@ -67,10 +58,30 @@ const Business = () => {
     fetchBusinessConfig();
   }, []);
 
+  const carouselConfig = useMemo(() => {
+    if (isMobile) {
+      return {
+        infinite: true,
+        autoplay: true,
+        arrows: true,
+      }
+    } else {
+      return {
+        centerMode: true,
+        slidesToShow: 3,
+        speed: 2000,
+        autoplaySpeed: 2000,
+        centerPadding: '60px',
+        infinite: true,
+        autoplay: true,
+        arrows: true,
+      };
+    }
+  }, [isMobile]);
+
   const [coreProductsData, customCases] = useMemo(() => {
     const coreProductsData = businessCases.filter(item => item.type === '业务介绍') ?? [];
     const customCases = businessCases.filter(item => item.type === '业务案例') ?? [];
-    console.log(coreProductsData, customCases)
     return [coreProductsData, customCases]
   }, [businessCases]);
 

@@ -7,6 +7,7 @@ import organization4 from '../../../../assets/images/people/organization4.jpg';
 
 import './index.less';
 import { useMemo } from "react";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 const { Content } = Layout;
 
@@ -27,8 +28,16 @@ export const organizationData = {
 
 const Organization = (props: { bigMode: boolean }) => {
   const { bigMode = false } = props;
+  const isMobile = useIsMobile();
 
   const carouselConfig = useMemo(() => {
+    if (isMobile) {
+      return {
+        infinite: true,
+        autoplay: true,
+        arrows: true,
+      };
+    }
     return {
       centerMode: true,
       slidesToShow: bigMode ? 1 : 2,
@@ -40,10 +49,10 @@ const Organization = (props: { bigMode: boolean }) => {
       autoplay: true,
       arrows: true,
     };
-  }, [bigMode]);
+  }, [bigMode, isMobile]);
 
   return (
-    <Content className="organization-page">
+    <Content className={`organization-page ${isMobile ? 'organization-page-mobile' : ''}`}>
       <div className="section-content">
         {!bigMode && (
           <div className='organization-title'>
