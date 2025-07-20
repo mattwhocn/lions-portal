@@ -3,7 +3,7 @@ import { Layout, Tabs, Row, Col, Card, Affix, Tag, Empty } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import { getNewsTagColor } from '../../utils/newsHelpers';
-import { newsContent, NewsItem } from './helper';
+import { extractFirstImageUrl, newsContent, NewsItem } from './helper';
 import axios from 'axios';
 import { formatExcelDate } from './Detail';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
@@ -36,7 +36,7 @@ const News: React.FC = () => {
   useEffect(() => {
     const fetchNewsList = async () => {
       try {
-        const response = await axios.get(`${API_DOMAIN}/data/json/news/news.json`);
+        const response = await axios.get(`${API_DOMAIN}/lions-data/json/news/news.json`);
         const newsList = response.data?.map((item: any) => ({
           ...item,
           date: formatExcelDate(item.date),

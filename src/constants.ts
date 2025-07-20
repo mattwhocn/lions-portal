@@ -1,1 +1,1 @@
-export const API_DOMAIN = 'http://39.105.169.82:4002';
+export const API_DOMAIN = 'https://static.lioninternational.cn';

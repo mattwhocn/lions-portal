@@ -101,7 +101,7 @@ const Home: React.FC = () => {
 
   const fetchBannerConfig = async () => {
     try {
-      const response = await axios.get(`${API_DOMAIN}/data/json/banner/banner.json`);
+      const response = await axios.get(`${API_DOMAIN}/lions-data/json/banner/banner.json`);
       setBannerData(response.data);
     } catch (error) {
       console.error('获取banner配置失败:', error);
@@ -110,7 +110,7 @@ const Home: React.FC = () => {
 
   const fetchNewsList = async () => {
     try {
-      const response = await axios.get(`${API_DOMAIN}/data/json/news/news.json`);
+      const response = await axios.get(`${API_DOMAIN}/lions-data/json/news/news.json`);
       const newsList = response.data?.map((item: any) => ({
         ...item,
         date: formatExcelDate(item.date),

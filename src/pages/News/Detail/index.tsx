@@ -93,7 +93,7 @@ const NewsDetail: React.FC = () => {
     setLoading(true);
     const fetchNewsList = async () => {
       try {
-        const response = await axios.get(`${API_DOMAIN}/data/json/news/news.json`);
+        const response = await axios.get(`${API_DOMAIN}/lions-data/json/news/news.json`);
         const newsList = response.data?.map((item: any) => ({
           ...item,
           date: formatExcelDate(item.date),
