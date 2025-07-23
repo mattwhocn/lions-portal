@@ -4,13 +4,13 @@ import { AppstoreOutlined } from '@ant-design/icons';
 import { withErrorBoundary } from '@/components/ErrorBoundary';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import people1Content from '../../assets/people-md/people1.md';
 import people2Content from '../../assets/people-md/people2.md';
 import people3Content from '../../assets/people-md/people3.md';
 import { usePageTitle } from '../../hooks/usePageTitle';
 import Organization from './Components/Organization';
-import Party from './Components/Party';
-import './style.less';
 import { useIsMobile } from '@/hooks/useIsMobile';
+import './style.less';
 
 const { Content } = Layout;
 const { TabPane } = Tabs;
@@ -41,8 +41,8 @@ const MenuItems: MenuItem[] = [
     key: '党建工作',
     label: '党建工作',
     icon: <AppstoreOutlined />,
-    type: 'component',
-    content: <Party />,
+    type: 'markdown',
+    content: people1Content,
   },
   {
     key: '工会工作',
