@@ -1,5 +1,9 @@
 # 工会工作
 
+![插图](http://static.lioninternational.cn/lions-data/images/1755349143449.jpg)
+
+![插图](http://static.lioninternational.cn/lions-data/images/1755349149398.jpg)
+
 ## 一、职工权益保障
 #### 1.	劳动关系协调
 （1）监督劳动合同签订、履行，确保薪资按时足额发放。

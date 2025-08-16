@@ -1,4 +1,11 @@
 # 团建工作
+
+![插图](http://static.lioninternational.cn/lions-data/images/1755349155666.jpg)
+
+![插图](http://static.lioninternational.cn/lions-data/images/1755349161820.jpg)
+
+![插图](http://static.lioninternational.cn/lions-data/images/1755349172115.jpg)
+
 ## 一、常规团建活动
 #### 1.	技能融合型活动
 （1）安保技能比武：分队列会操、消防演练、应急救护情景赛，强化专业能力与团队协作。

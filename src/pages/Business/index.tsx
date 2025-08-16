@@ -41,8 +41,8 @@ const defaultBusinessCases: BusinessCase[] = [
     {
       id: 1,
       type: "业务案例",
-      title: "业务业务案例Case1",
-      description: `业务领域，业务领域业务领域业务领域业务领域业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域，业务领域，业务领域，业务领域业务领域，业务领域业务领域，业务领域业务领域业务领域业务领域业务领域。`,
+      title: "北京龙熙维景国际会议中心 - 累计合同金额800余万元",
+      description: `北京龙熙维景国际会议中心是由北京星牌集团投资，港中旅酒店有限公司管理的高端商务型会议酒店。位于北京市大兴区庞各庄，毗邻京开高速公路，交通便利，是远离喧嚣，尽享舒适会议与安逸休闲的最佳所在。拥有352套风格各异的客房，酒店集温泉和高尔夫为一体，8000平米的阳光海岸温泉水世界及18栋高尔夫球场是养生放松的绝佳之处，完善的设备和优质服务间满足各类商务休闲及会议的的服务需求。`,
       image: business1,
       images: [business1, business2],
     },
@@ -79,10 +79,11 @@ const Business = () => {
     }
   }, [isMobile]);
 
-  const [coreProductsData, customCases] = useMemo(() => {
+  const [coreProductsData, customCases, advantageCases] = useMemo(() => {
     const coreProductsData = businessCases.filter(item => item.type === '业务介绍') ?? [];
     const customCases = businessCases.filter(item => item.type === '业务案例') ?? [];
-    return [coreProductsData, customCases]
+    const advantageCases = businessCases.filter(item => item.type === '业务优势') ?? [];
+    return [coreProductsData, customCases, advantageCases]
   }, [businessCases]);
 
   const fetchBusinessConfig = async () => {
@@ -174,7 +175,7 @@ const Business = () => {
                   <Title className="case-title" level={4}>{item.title}</Title>
                   <Row gutter={[12, 12]} className="case-image">
                     {item.images.slice(0, 2)?.map((image, index) => (
-                      <Col xs={24} sm={24} lg={12} key={index} className="tech-overlay">
+                      <Col xs={24} sm={24} lg={item.images?.length >=2 ? 12 : 24} key={index} className="tech-overlay">
                         <img src={image} alt={item.title} />
                       </Col>
                     ))}
@@ -182,6 +183,43 @@ const Business = () => {
                   <div className="case-info">
                     <Paragraph>{item.description}</Paragraph>
                   </div>
+                </Card>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      </section>
+
+      {/* 业务优势 */}
+      <section className="business-advantage-section">
+        <div className="section-content">
+          <div className="section-header">
+            <Title level={2}>业务优势</Title>
+          </div>
+          <Row gutter={[24, 24]}>
+            {advantageCases?.map((item, index) => (
+              <Col xs={24} sm={24} lg={24} key={item.id}>
+                <Card className="case-card" variant="borderless">
+                  <Title className="case-title" level={4}>{item.title}</Title>
+                  {(index % 2) === 1 ? (
+                    <Row gutter={[12, 12]}>
+                      <Col xs={24} sm={24} lg={12} className="case-image">
+                        <img src={item.images[0]} alt={item.title} />
+                      </Col>
+                      <Col xs={24} sm={24} lg={12} className="case-paragraph">
+                        <Paragraph>{item.description}</Paragraph>
+                      </Col>
+                    </Row>
+                  ) : (
+                    <Row gutter={[12, 12]}>
+                      <Col xs={24} sm={24} lg={12} className="case-paragraph">
+                        <Paragraph>{item.description}</Paragraph>
+                      </Col>
+                      <Col xs={24} sm={24} lg={12} className="case-image">
+                        <img src={item.images[0]} alt={item.title} />
+                      </Col>
+                    </Row>
+                  )}
                 </Card>
               </Col>
             ))}
